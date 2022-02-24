@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MathQuestion : MonoBehaviour
+public struct MathQuestion
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    int firstNumber;
+    int secondNumber;
+    int correctAnswer;
+    MathOperations mathOperation;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int FirstNumber { get => firstNumber; set => firstNumber = value; }
+    public int SecondNumber { get => secondNumber; set => secondNumber = value; }
+    public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
+    public MathOperations MathOperation { get => mathOperation; set => mathOperation = value; }
+    
+}
+
+public enum MathOperations
+{
+    Addition,
+    Substraction,
+    Multiplication,
+    Division
 }
