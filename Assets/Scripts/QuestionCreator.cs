@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionCreator : MonoBehaviour
+public class QuestionCreator
 { 
     public MathQuestion QuestionGenerator(MathQuestion mathQuestion)
     {
