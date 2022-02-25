@@ -11,13 +11,26 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        questions.Add(questionCreator.QuestionGenerator(mathQuestion));
-        Debug.Log(questions[0].FirstNumber + " " + questions[0].MathOperation + " " + questions[0].SecondNumber + "=" + questions[0].CorrectAnswer);
+        InvokeRepeating(nameof(AddingAndChecking), 1f, 2f);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void CheckResults()
+    {
+        foreach (var question in questions)
+        {
+            Debug.Log(question.FirstNumber + " " + question.MathOperation + " " + question.SecondNumber + "=" + question.CorrectAnswer);
+        }
+    }
+
+    void AddingAndChecking()
+    {
+        questions.Add(questionCreator.QuestionGenerator(mathQuestion));
+        CheckResults();
     }
 }

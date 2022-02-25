@@ -7,13 +7,13 @@ public class QuestionCreator
     public MathQuestion QuestionGenerator(MathQuestion mathQuestion)
     {
         MathOperations operation = (MathOperations)Random.Range(0, 4);
-        Debug.Log("Hello2");
+        mathQuestion.MathOperation = operation;
         return operation switch
         {
             MathOperations.Addition => Addition(mathQuestion),
-            MathOperations.Substraction => Addition(mathQuestion),
-            MathOperations.Multiplication => Addition(mathQuestion),
-            MathOperations.Division => Addition(mathQuestion),
+            MathOperations.Substraction => Substraction(mathQuestion),
+            MathOperations.Multiplication => Multiplication(mathQuestion),
+            MathOperations.Division => Division(mathQuestion),
             _ => Addition(mathQuestion),
         };
     }
@@ -22,9 +22,36 @@ public class QuestionCreator
     {
         mathQuestion.FirstNumber = Random.Range(0, 100);
         mathQuestion.SecondNumber = Random.Range(0, 100);
-        mathQuestion.MathOperation = MathOperations.Addition;
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber + mathQuestion.SecondNumber;
-        Debug.Log("Hello1");
         return mathQuestion;
     }
+
+    MathQuestion Substraction(MathQuestion mathQuestion)
+    {
+        mathQuestion.FirstNumber = Random.Range(0, 100);
+        mathQuestion.SecondNumber = Random.Range(0, 100);
+        if (mathQuestion.FirstNumber >= mathQuestion.SecondNumber)
+        {
+            mathQuestion.CorrectAnswer = mathQuestion.FirstNumber - mathQuestion.SecondNumber;
+        }else
+            mathQuestion.CorrectAnswer = mathQuestion.SecondNumber - mathQuestion.FirstNumber;
+        return mathQuestion;
+    }
+
+    MathQuestion Multiplication(MathQuestion mathQuestion)
+    {
+        mathQuestion.FirstNumber = Random.Range(0, 20);
+        mathQuestion.SecondNumber = Random.Range(0, 50);
+        mathQuestion.CorrectAnswer = mathQuestion.FirstNumber * mathQuestion.SecondNumber;
+        return mathQuestion;
+    }
+
+    MathQuestion Division(MathQuestion mathQuestion)
+    {
+        mathQuestion.FirstNumber = Random.Range(10, 100);
+        mathQuestion.SecondNumber = Random.Range(0, 10);
+        mathQuestion.CorrectAnswer = mathQuestion.FirstNumber / mathQuestion.SecondNumber;
+        return mathQuestion;
+    }
+    
 }
