@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     QuestionCreator questionCreator = new QuestionCreator();
+    AnswerCreator answerCreator = new AnswerCreator();
     MathQuestion mathQuestion;
-    List<MathQuestion> questions = new List<MathQuestion>();
 
     //Part for testing
     [SerializeField] Text problem;
@@ -16,11 +16,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] Button answer2;
     [SerializeField] Button answer3;
     [SerializeField] Button answer4;
+    int correctAnswer;
 
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(AddingAndChecking), 1f, 2f);
+        SetQuestion();
     }
 
     // Update is called once per frame
@@ -29,22 +30,24 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void CheckResults()
-    {
-        foreach (var question in questions)
-        {
-            Debug.Log(question.FirstNumber + " " + question.MathOperation + " " + question.SecondNumber + "=" + question.CorrectAnswer);
-        }
-    }
-
-    void AddingAndChecking()
+    void SetQuestion()
     {
         AssignProblem(questionCreator.QuestionGenerator(mathQuestion));
+    }
+
+    private void AssignAnswer(Button a, Button b, Button c, Button d, int correctAnswer)
+    {
+        a.GetComponentInChildren<Text>().text = answerCreator.RandomAnswerGenerator(correctAnswer, 1).ToString();
+        b.GetComponentInChildren<Text>().text = answerCreator.RandomAnswerGenerator(correctAnswer, 2).ToString();
+        c.GetComponentInChildren<Text>().text = answerCreator.RandomAnswerGenerator(correctAnswer, 3).ToString();
+        d.GetComponentInChildren<Text>().text = answerCreator.RandomAnswerGenerator(correctAnswer, 4).ToString();
     }
 
     void AssignProblem(MathQuestion question)
     {
         problem.text = string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
+        AssignAnswer(answer1, answer2, answer3, answer4 ,question.CorrectAnswer);
+        correctAnswer = question.CorrectAnswer;
     }
 
     string OperationDecider(MathOperations operation)
@@ -59,10 +62,9 @@ public class GameManager : MonoBehaviour
         };
     }
 
-
     public void CheckAnswer(Text answer)
     {
-        if (mathQuestion.CorrectAnswer == int.Parse(answer.text))
+        if (correctAnswer == int.Parse(answer.text))
         {
             CorrectAnswer();
         }
@@ -73,11 +75,13 @@ public class GameManager : MonoBehaviour
     void WrongAnswer()
     {
         Debug.Log("Wrong");
+        SetQuestion();
     }
 
     void CorrectAnswer()
     {
         Debug.Log("Correct");
+        SetQuestion();
     }
    
 }

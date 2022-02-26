@@ -14,7 +14,7 @@ public class QuestionCreator
             MathOperations.Substraction => Substraction(mathQuestion),
             MathOperations.Multiplication => Multiplication(mathQuestion),
             MathOperations.Division => Division(mathQuestion),
-            _ => Addition(mathQuestion),
+            _ => Addition(mathQuestion)
         };
     }
 
@@ -49,7 +49,7 @@ public class QuestionCreator
     MathQuestion Division(MathQuestion mathQuestion)
     {
         mathQuestion.FirstNumber = Random.Range(10, 100);
-        mathQuestion.SecondNumber = Random.Range(0, 10);
+        mathQuestion.SecondNumber = Random.Range(1, 10);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber / mathQuestion.SecondNumber;
         return mathQuestion;
     }
