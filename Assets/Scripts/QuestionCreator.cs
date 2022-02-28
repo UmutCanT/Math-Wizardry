@@ -8,6 +8,7 @@ public class QuestionCreator
     {
         MathOperations operation = (MathOperations)Random.Range(0, 4);
         mathQuestion.MathOperation = operation;
+        mathQuestion.Answers = new int[] {0,0,0,0}; 
         return operation switch
         {
             MathOperations.Addition => Addition(mathQuestion),

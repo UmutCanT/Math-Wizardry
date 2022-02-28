@@ -896,10 +896,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   problem: {fileID: 1656917362}
-  answer1: {fileID: 493150851}
-  answer2: {fileID: 352803294}
-  answer3: {fileID: 421756247}
-  answer4: {fileID: 1390895199}
+  answers:
+  - {fileID: 493150851}
+  - {fileID: 352803294}
+  - {fileID: 421756247}
+  - {fileID: 1390895199}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

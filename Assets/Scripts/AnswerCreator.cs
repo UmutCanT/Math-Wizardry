@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class AnswerCreator
 {
-    public int RandomAnswerGenerator(int correctAnswer, int choice)
+    public int[] AnswerGenerator(int correctAnswer, int[] answers)
     {
-        return choice switch
+        for (int n = 0; n < answers.Length; n++)
         {
-            1 => Random.Range(0, 100),
-            2 => Random.Range(0, 100),
-            3 => Random.Range(0, 100),
-            4 => correctAnswer,
-            _ => default
-        };
+            answers[n] = Random.Range(0, 100);
+        }
+        answers[0] = correctAnswer;
+        return answers;
+    }
+
+    public void AnswerShuffle(int[] answers)
+    {    
+        for (int n = 0; n < answers.Length; n++)
+        {
+            int tmp = answers[n];
+            int r = Random.Range(n, answers.Length);
+            answers[n] = answers[r];
+            answers[r] = tmp;
+        }
     }
 }
