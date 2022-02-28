@@ -1,10 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class AnswerCreator
+//Merge with Question Creator ?
+public static class AnswerCreator
 {
-    public int[] AnswerGenerator(int correctAnswer, int[] answers)
+    public static int[] AnswerGenerator(int correctAnswer, int[] answers)
     {
         for (int n = 0; n < answers.Length; n++)
         {
@@ -14,7 +14,7 @@ public class AnswerCreator
         return answers;
     }
 
-    public void AnswerShuffle(int[] answers)
+    public static void AnswerShuffle(int[] answers)
     {    
         for (int n = 0; n < answers.Length; n++)
         {

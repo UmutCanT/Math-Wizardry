@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestionCreator
+public static class QuestionCreator
 { 
-    public MathQuestion QuestionGenerator(MathQuestion mathQuestion)
+    public static MathQuestion QuestionGenerator(MathQuestion mathQuestion)
     {
         MathOperations operation = (MathOperations)Random.Range(0, 4);
         mathQuestion.MathOperation = operation;
@@ -19,7 +19,7 @@ public class QuestionCreator
         };
     }
 
-    MathQuestion Addition(MathQuestion mathQuestion)
+    static MathQuestion Addition(MathQuestion mathQuestion)
     {
         mathQuestion.FirstNumber = Random.Range(0, 100);
         mathQuestion.SecondNumber = Random.Range(0, 100);
@@ -27,7 +27,7 @@ public class QuestionCreator
         return mathQuestion;
     }
 
-    MathQuestion Substraction(MathQuestion mathQuestion)
+    static MathQuestion Substraction(MathQuestion mathQuestion)
     {
         mathQuestion.FirstNumber = Random.Range(0, 100);
         mathQuestion.SecondNumber = Random.Range(0, 100);
@@ -39,7 +39,7 @@ public class QuestionCreator
         return mathQuestion;
     }
 
-    MathQuestion Multiplication(MathQuestion mathQuestion)
+    static MathQuestion Multiplication(MathQuestion mathQuestion)
     {
         mathQuestion.FirstNumber = Random.Range(0, 20);
         mathQuestion.SecondNumber = Random.Range(0, 50);
@@ -47,7 +47,7 @@ public class QuestionCreator
         return mathQuestion;
     }
 
-    MathQuestion Division(MathQuestion mathQuestion)
+    static MathQuestion Division(MathQuestion mathQuestion)
     {
         mathQuestion.FirstNumber = Random.Range(10, 100);
         mathQuestion.SecondNumber = Random.Range(1, 10);
