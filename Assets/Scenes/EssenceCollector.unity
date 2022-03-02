@@ -1409,7 +1409,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ab4e923b145ed44800e12a810a6841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  essencePrefab: {fileID: 3327817410728678646, guid: c2ce563131a7c5c4fb9f93d3e31ec691,
+  essences: []
+  essencePrefab: {fileID: 244728047184808227, guid: c2ce563131a7c5c4fb9f93d3e31ec691,
     type: 3}
 --- !u!1 &1887886255
 GameObject:

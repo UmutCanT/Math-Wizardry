@@ -5,17 +5,26 @@ using UnityEngine;
 //Use with this IObjectPool when Unity version upgraded 
 public class EssencePool : MonoBehaviour
 {
-    List<GameObject> essences = new List<GameObject>();
+    public static EssencePool SharedInstance;
+
+    public List<GameObject> essences = new List<GameObject>();
 
     [SerializeField] GameObject essencePrefab;
     int essenceCount = 4;
     //For test
     Vector3 spawnPos = new Vector3(0, 5, 0);
 
+
+    void Awake()
+    {
+        SharedInstance = this;
+        CreatingEssences();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        CreatingEssences();
+        
     }
 
     void CreatingEssences()
@@ -36,6 +45,7 @@ public class EssencePool : MonoBehaviour
         {
             if (!essences[i].activeInHierarchy)
             {
+                Debug.Log(essences[i].name + " " + i);
                 return essences[i];
             }
         }

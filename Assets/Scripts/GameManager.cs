@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        for (int i = 0; i < 4; i++)
+        {
+            AssignEssences(i);
+        }
         SetQuestion();
     }
 
@@ -24,8 +28,21 @@ public class GameManager : MonoBehaviour
         
     }
 
+    void AssignEssences(int i)
+    {
+        GameObject essence = EssencePool.SharedInstance.GetEssences();
+        if (essence != null)
+        {
+            essence.transform.position = Vector3.up * i;
+            essence.transform.rotation = Quaternion.identity;
+            essence.SetActive(true);
+        }
+
+    }
+
     void SetQuestion()
     {
+
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
