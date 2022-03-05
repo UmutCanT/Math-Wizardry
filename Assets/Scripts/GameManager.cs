@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            AssignEssences(i);
+            AssignEssences(i);           
         }
         SetQuestion();
     }
@@ -37,7 +38,6 @@ public class GameManager : MonoBehaviour
             essence.transform.rotation = Quaternion.identity;
             essence.SetActive(true);
         }
-
     }
 
     void SetQuestion()
@@ -46,12 +46,13 @@ public class GameManager : MonoBehaviour
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
-    public void AssignAnswers(Button[] essences, int[] answers)//Change Button to Essence type later
+    public void AssignAnswers(Button[] essences, List<GameObject>essences2, int[] answers)//Change Button to Essence type later
     {
         AnswerCreator.AnswerShuffle(answers);
         for (int n = 0; n < essences.Length; n++)
         {
             essences[n].GetComponentInChildren<Text>().text = answers[n].ToString();
+            essences2[n].GetComponent<EssenceUI>().Answer(answers[n].ToString());
         }
     }
 
@@ -59,7 +60,7 @@ public class GameManager : MonoBehaviour
     {
         //Later Put-in UI Manager
         problem.text = string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
-        AssignAnswers(answers, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
+        AssignAnswers(answers,EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         correctAnswer = question.CorrectAnswer;
     }
 

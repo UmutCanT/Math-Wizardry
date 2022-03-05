@@ -7,13 +7,14 @@ public class EssencePool : MonoBehaviour
 {
     public static EssencePool SharedInstance;
 
-    public List<GameObject> essences = new List<GameObject>();
+    private List<GameObject> essences = new List<GameObject>();
 
     [SerializeField] GameObject essencePrefab;
     int essenceCount = 4;
-    //For test
+
     Vector3 spawnPos = new Vector3(0, 5, 0);
 
+    public List<GameObject> Essences { get => essences; set => essences = value; }
 
     void Awake()
     {
@@ -35,7 +36,7 @@ public class EssencePool : MonoBehaviour
         {
             essence = Instantiate(essencePrefab, spawnPos, Quaternion.identity);
             essence.SetActive(false);
-            essences.Add(essence);
+            Essences.Add(essence);
         }
     }
 
@@ -43,10 +44,10 @@ public class EssencePool : MonoBehaviour
     {
         for (int i = 0; i < essenceCount; i++)
         {
-            if (!essences[i].activeInHierarchy)
+            if (!Essences[i].activeInHierarchy)
             {
-                Debug.Log(essences[i].name + " " + i);
-                return essences[i];
+                Debug.Log(Essences[i].name + " " + i);
+                return Essences[i];
             }
         }
         return null;
