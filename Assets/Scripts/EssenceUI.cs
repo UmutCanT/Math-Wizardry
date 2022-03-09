@@ -6,8 +6,13 @@ using System;
 
 public class EssenceUI : MonoBehaviour
 {
-    public void Answer(string text)
+    public void SetAnswer(string text)
     {
         gameObject.GetComponentInChildren<TextMeshProUGUI>().text = text;
+    }
+
+    public int GetAnswer()
+    {
+        return int.Parse(gameObject.GetComponentInChildren<TextMeshProUGUI>().text);
     }
 }

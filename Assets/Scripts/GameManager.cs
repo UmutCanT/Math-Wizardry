@@ -7,15 +7,19 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
+    [SerializeField] GameObject playerPrefab;
 
     //Part for testing
     [SerializeField] Text problem;
     [SerializeField] Button[] answers = new Button[4];
     int correctAnswer;
 
+    public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
+
     // Start is called before the first frame update
     void Start()
     {
+        Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity).GetComponent<Answering>().onCorrectAnswer += SetQuestion; 
         for (int i = 0; i < 4; i++)
         {
             AssignEssences(i);           
@@ -34,15 +38,26 @@ public class GameManager : MonoBehaviour
         GameObject essence = EssencePool.SharedInstance.GetEssences();
         if (essence != null)
         {
-            essence.transform.position = Vector3.up * i;
+            essence.transform.position = EssencePosition(i);
             essence.transform.rotation = Quaternion.identity;
             essence.SetActive(true);
         }
     }
+    //For test
+    Vector3 EssencePosition(int i)
+    {
+        return i switch
+        {
+            0 => new Vector3(-2, 5, 0),
+            1 => new Vector3(-0.75f, 5, 0),
+            2 => new Vector3(0.75f, 5, 0),
+            3 => new Vector3(2, 5, 0),
+            _ => default,
+        };
+    }
 
     void SetQuestion()
     {
-
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
@@ -52,48 +67,35 @@ public class GameManager : MonoBehaviour
         for (int n = 0; n < essences.Length; n++)
         {
             essences[n].GetComponentInChildren<Text>().text = answers[n].ToString();
-            essences2[n].GetComponent<EssenceUI>().Answer(answers[n].ToString());
+            essences2[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
         }
     }
 
     void AssignProblem(MathQuestion question)
     {
         //Later Put-in UI Manager
-        problem.text = string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
+        problem.text = QuestionUI.AssignQuestion(question);
         AssignAnswers(answers,EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
-        correctAnswer = question.CorrectAnswer;
+        CorrectAnswer = question.CorrectAnswer;
     }
 
-    //Later Put-in UI Manager
-    string OperationDecider(MathOperations operation)
+    void CheckAnswer(Text answer)
     {
-        return operation switch
+        if (CorrectAnswer == int.Parse(answer.text))
         {
-            MathOperations.Addition => "+",
-            MathOperations.Substraction => "-",
-            MathOperations.Multiplication => "*",
-            MathOperations.Division => "/",
-            _ => default
-        };
-    }
-
-    public void CheckAnswer(Text answer)
-    {
-        if (correctAnswer == int.Parse(answer.text))
-        {
-            CorrectAnswer();
+            OnCorrectAnswer();
         }
         else
-            WrongAnswer();
+            OnWrongAnswer();
     }
 
-    void WrongAnswer()
+    void OnWrongAnswer()
     {
         Debug.Log("Wrong");
         SetQuestion();
     }
 
-    void CorrectAnswer()
+    void OnCorrectAnswer()
     {
         Debug.Log("Correct");
         SetQuestion();
