@@ -1,29 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    int score;
+    public event Action onPointsGain;
+
+    int totalScore;
     //Take bonus points according to difficulty
     int point;
 
-    // Start is called before the first frame update
-    void Start()
+    public int TotalScore { get => totalScore; set => totalScore = value; }
+
+    void Awake()
     {
-        score = 0;
+        totalScore = 0;
         point = 5;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().onCorrectAnswer += AddScore;       
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Debug.Log(score);
+    // Start is called before the first frame update
+    void Start()
+    {        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().onCorrectAnswer += AddScore;       
     }
 
     void AddScore()
     {
-        score += point;
+        totalScore += point;
+        onPointsGain();
     }
 }
