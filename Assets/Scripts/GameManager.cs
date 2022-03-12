@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
 
     //Part for testing
     [SerializeField] Text problem;
-    [SerializeField] Button[] answers = new Button[4];
     int correctAnswer;
 
     public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
@@ -19,10 +18,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity).GetComponent<Answering>().onCorrectAnswer += SetQuestion; 
+        Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity).GetComponent<Answering>().onAnswer += SetQuestion;
         for (int i = 0; i < 4; i++)
         {
-            AssignEssences(i);           
+            EssenceActivation(i);
         }
         SetQuestion();
     }
@@ -33,7 +32,20 @@ public class GameManager : MonoBehaviour
         
     }
 
-    void AssignEssences(int i)
+    void EssenceDeactivation()
+    {
+        foreach (var essence in EssencePool.SharedInstance.Essences)
+        {
+            essence.SetActive(false);
+        }
+    }
+
+    void EssenceReposition(int i)
+    {
+        EssencePool.SharedInstance.Essences[i].transform.position = EssencePosition(i);
+    }
+
+    void EssenceActivation(int i)
     {
         GameObject essence = EssencePool.SharedInstance.GetEssences();
         if (essence != null)
@@ -58,16 +70,21 @@ public class GameManager : MonoBehaviour
 
     void SetQuestion()
     {
+        //EssenceDeactivation();
+        for (int i = 0; i < 4; i++)
+        {
+            //EssenceActivation(i);
+            EssenceReposition(i);
+        }
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
-    public void AssignAnswers(Button[] essences, List<GameObject>essences2, int[] answers)//Change Button to Essence type later
+    public void AssignAnswers(List<GameObject>essences, int[] answers)//Change Button to Essence type later
     {
         AnswerCreator.AnswerShuffle(answers);
-        for (int n = 0; n < essences.Length; n++)
-        {
-            essences[n].GetComponentInChildren<Text>().text = answers[n].ToString();
-            essences2[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
+        for (int n = 0; n < essences.Count; n++)
+        {            
+            essences[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
         }
     }
 
@@ -75,30 +92,7 @@ public class GameManager : MonoBehaviour
     {
         //Later Put-in UI Manager
         problem.text = QuestionUI.AssignQuestion(question);
-        AssignAnswers(answers,EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
+        AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         CorrectAnswer = question.CorrectAnswer;
     }
-
-    void CheckAnswer(Text answer)
-    {
-        if (CorrectAnswer == int.Parse(answer.text))
-        {
-            OnCorrectAnswer();
-        }
-        else
-            OnWrongAnswer();
-    }
-
-    void OnWrongAnswer()
-    {
-        Debug.Log("Wrong");
-        SetQuestion();
-    }
-
-    void OnCorrectAnswer()
-    {
-        Debug.Log("Correct");
-        SetQuestion();
-    }
-   
 }

@@ -9,6 +9,7 @@ public class Answering : MonoBehaviour
 
     public event Action onCorrectAnswer;
     public event Action onWrongAnswer;
+    public event Action onAnswer;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class Answering : MonoBehaviour
         if (other.CompareTag("Essence"))
         {
             CheckAnswer(other);
+            onAnswer();
         }
     }
     
@@ -30,12 +32,12 @@ public class Answering : MonoBehaviour
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
             Debug.Log("Correct " + essence.GetComponent<EssenceUI>().GetAnswer());
-            onCorrectAnswer();
+            //onCorrectAnswer();
         }
         else
         {
             Debug.Log("Wrong");
-            onWrongAnswer();
+            //onWrongAnswer();
         }
     }
 }
