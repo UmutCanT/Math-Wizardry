@@ -15,10 +15,14 @@ public class GameManager : MonoBehaviour
 
     public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity).GetComponent<Answering>().onAnswer += SetQuestion;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {       
         for (int i = 0; i < 4; i++)
         {
             EssenceActivation(i);

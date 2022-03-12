@@ -32,7 +32,7 @@ public class Answering : MonoBehaviour
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
             Debug.Log("Correct " + essence.GetComponent<EssenceUI>().GetAnswer());
-            //onCorrectAnswer();
+            onCorrectAnswer();
         }
         else
         {
