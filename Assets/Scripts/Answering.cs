@@ -26,12 +26,10 @@ public class Answering : MonoBehaviour
     }
     
     void CheckAnswer(Collider essence)
-    {
-        Debug.Log(essence.GetComponent<EssenceUI>().GetAnswer() + " From Essence");
-        Debug.Log(gameManager.CorrectAnswer + " From manager");
+    {       
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
-            Debug.Log("Correct " + essence.GetComponent<EssenceUI>().GetAnswer());
+            Debug.Log("Correct ");
             onCorrectAnswer();
         }
         else

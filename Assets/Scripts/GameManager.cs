@@ -83,20 +83,20 @@ public class GameManager : MonoBehaviour
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
-    public void AssignAnswers(List<GameObject>essences, int[] answers)//Change Button to Essence type later
-    {
-        AnswerCreator.AnswerShuffle(answers);
-        for (int n = 0; n < essences.Count; n++)
-        {            
-            essences[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
-        }
-    }
+    //public void AssignAnswers(List<GameObject>essences, int[] answers)
+    //{
+    //    AnswerCreator.AnswerShuffle(answers);
+    //    for (int n = 0; n < essences.Count; n++)
+    //    {            
+    //        essences[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
+    //    }
+    //}
 
     void AssignProblem(MathQuestion question)
     {
         //Later Put-in UI Manager
         problem.text = QuestionUI.AssignQuestion(question);
-        AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
+        QuestionUI.AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         CorrectAnswer = question.CorrectAnswer;
     }
 }

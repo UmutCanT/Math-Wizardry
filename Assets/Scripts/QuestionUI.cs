@@ -25,4 +25,13 @@ public static class QuestionUI
     {
         return string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
     }
+
+    public static void AssignAnswers(List<GameObject> essences, int[] answers)
+    {
+        AnswerCreator.AnswerShuffle(answers);
+        for (int n = 0; n < essences.Count; n++)
+        {
+            essences[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
+        }
+    }
 }
