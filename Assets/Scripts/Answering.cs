@@ -35,7 +35,7 @@ public class Answering : MonoBehaviour
         else
         {
             Debug.Log("Wrong");
-            //onWrongAnswer();
+            onWrongAnswer();
         }
     }
 }
