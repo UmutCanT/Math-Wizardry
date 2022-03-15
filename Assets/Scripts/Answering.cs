@@ -10,6 +10,15 @@ public class Answering : MonoBehaviour
     public event Action onCorrectAnswer;
     public event Action onWrongAnswer;
     public event Action onAnswer;
+    public event Action onBonusGain;
+
+    int correctAnswerCounter;
+    int requiredAmountForBonus = 1;
+
+    void Awake()
+    {
+        correctAnswerCounter = 0;
+    }
 
     void Start()
     {
@@ -31,6 +40,13 @@ public class Answering : MonoBehaviour
         {
             Debug.Log("Correct ");
             onCorrectAnswer();
+            correctAnswerCounter++;
+            if (correctAnswerCounter >= requiredAmountForBonus)
+            {
+                onBonusGain();
+                correctAnswerCounter = 0;
+            }
+
         }
         else
         {

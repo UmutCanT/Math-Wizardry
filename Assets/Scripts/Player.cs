@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         gameObject.AddComponent<Health>();
+        gameObject.AddComponent<Mana>();
     }
 
 }
