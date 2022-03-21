@@ -6,17 +6,13 @@ using UnityEngine;
 public class QuickAnswerAbility : Ability
 {
     public float aliveTime = 5f;
-    public Vector3 spawnPos;
-
+    public Rigidbody projectile;
     SkillCastTriggerable skillCast;
 
     public override void Initialize(GameObject obj)
     {
         skillCast = obj.GetComponent<SkillCastTriggerable>();
-        skillCast.Initialize();
-
-        skillCast.SpawnPos = spawnPos;
-        skillCast.AliveTime = aliveTime;
+        skillCast.projectile = projectile;       
     }
 
     public override void TriggerAbility()

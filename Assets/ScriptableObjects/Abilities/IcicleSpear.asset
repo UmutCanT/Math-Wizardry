@@ -16,4 +16,5 @@ MonoBehaviour:
   abilitySprite: {fileID: 0}
   abilitySound: {fileID: 0}
   abilityBaseCoolDown: 1
-  speedOfSkill: 5
+  aliveTime: 5
+  projectile: {fileID: 1054292824, guid: 2dc2402e3d8333d4e97453f51300ab02, type: 3}
