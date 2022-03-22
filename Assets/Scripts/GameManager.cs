@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
     [SerializeField] GameObject playerPrefab;
+    [SerializeField] Character character;
 
     //Part for testing
     [SerializeField] Text problem;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity).GetComponent<Answering>().onAnswer += SetQuestion;
+        PlayerSpawn();
     }
 
     // Start is called before the first frame update
@@ -28,6 +29,14 @@ public class GameManager : MonoBehaviour
             EssenceActivation(i);
         }
         SetQuestion();
+    }
+
+    //Later use with character select system
+    void PlayerSpawn()
+    {
+        GameObject spawnedPlayer = Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity) as GameObject;
+        spawnedPlayer.GetComponent<Answering>().onAnswer += SetQuestion;
+        spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
     }
 
     // Update is called once per frame

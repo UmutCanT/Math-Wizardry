@@ -10,4 +10,8 @@ public class Player : MonoBehaviour
         gameObject.AddComponent<Mana>();
     }
 
+    private void OnMouseDown()
+    {
+        
+    }
 }
