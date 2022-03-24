@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
         GameObject spawnedPlayer = Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity) as GameObject;
         spawnedPlayer.GetComponent<Answering>().onAnswer += SetQuestion;
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
+        spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
 
     // Update is called once per frame

@@ -4,14 +4,20 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    Ability ability;
     void Awake()
     {
         gameObject.AddComponent<Health>();
         gameObject.AddComponent<Mana>();
     }
 
-    private void OnMouseDown()
+    public void IntializeAbility(Ability selectedAbility)
     {
-        
+        ability = selectedAbility;
+        ability.Initialize(gameObject);
+    }
+    void OnMouseDown()
+    {
+        ability.TriggerAbility();
     }
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Frosty
   totalHealth: 15
-  abilities:
+  abilites:
   - {fileID: 11400000, guid: f9761804b4dc76f41b1569147837ec89, type: 2}

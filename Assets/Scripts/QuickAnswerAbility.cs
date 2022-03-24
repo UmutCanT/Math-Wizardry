@@ -12,7 +12,7 @@ public class QuickAnswerAbility : Ability
     public override void Initialize(GameObject obj)
     {
         skillCast = obj.GetComponent<SkillCastTriggerable>();
-        skillCast.projectile = projectile;       
+        skillCast.Projectile = projectile;       
     }
 
     public override void TriggerAbility()

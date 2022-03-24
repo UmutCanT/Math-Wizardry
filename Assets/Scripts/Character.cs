@@ -8,8 +8,8 @@ public class Character : ScriptableObject
     [SerializeField] string characterName = "Name";
     [SerializeField] int totalHealth = 10;    
 
-    [SerializeField] Ability quickAnswerAbility;
-    [SerializeField] Ability ultimateAbility;
+    [SerializeField] Ability[] abilites;
 
     public int TotalHealth { get => totalHealth; set => totalHealth = value; }
+    public Ability[] Abilites { get => abilites; set => abilites = value; }
 }

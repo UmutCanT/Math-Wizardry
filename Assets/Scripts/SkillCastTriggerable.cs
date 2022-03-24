@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class SkillCastTriggerable : MonoBehaviour
 {
-    public Rigidbody projectile;
-    public Transform spawnPos;
+    Rigidbody projectile;
     public float projectileForce = 250f;
     float aliveTime;
 
-    public Transform SpawnPos { get => spawnPos; set => spawnPos = value; }
-    public float AliveTime { get => aliveTime; set => aliveTime = value; }   
+    public float AliveTime { get => aliveTime; set => aliveTime = value; }
+    public Rigidbody Projectile { get => projectile; set => projectile = value; }
 
     public void TriggerCast()
     {
-        Rigidbody clonedBullet = Instantiate(projectile, spawnPos.position, transform.rotation) as Rigidbody;
-        clonedBullet.AddForce(spawnPos.transform.up * projectileForce);
+        Rigidbody clonedBullet = Instantiate(projectile, Vector3.zero, Quaternion.identity) as Rigidbody;
+        clonedBullet.AddForce(Vector3.up * projectileForce);
     }
 }
