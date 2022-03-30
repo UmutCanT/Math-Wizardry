@@ -84,11 +84,11 @@ public class GameManager : MonoBehaviour
 
     void SetQuestion()
     {
-        //EssenceDeactivation();
+        EssenceDeactivation();
         for (int i = 0; i < 4; i++)
         {
-            //EssenceActivation(i);
-            EssenceReposition(i);
+            EssenceActivation(i);
+            //EssenceReposition(i);
         }
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }

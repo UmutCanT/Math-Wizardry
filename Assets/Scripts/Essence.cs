@@ -5,9 +5,12 @@ using UnityEngine;
 public class Essence : MonoBehaviour
 {
     Rigidbody rbody;
+    Statuses status;
 
     float fallingSpeedNormal = 10f;
     float fallingSpeedEffected = 20f;
+
+    public Statuses Status { get => status; set => status = value; }
 
     void Awake()
     {
@@ -21,7 +24,15 @@ public class Essence : MonoBehaviour
         if (other.gameObject.CompareTag("Projectile"))
         {
             other.gameObject.SetActive(false);
+            status = Statuses.effected;
             rbody.drag = 100 / fallingSpeedEffected;
         }
     }
-}   
+}
+
+public enum Statuses
+{
+    normal,
+    effected,
+    bonus
+}
