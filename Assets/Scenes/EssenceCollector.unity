@@ -591,6 +591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3277651769349167634, guid: 90f1d091380d314419e19f8e152a9521,
     type: 3}
+  character: {fileID: 11400000, guid: 32797fecb0b2a8f418717ae719746ee7, type: 2}
   problem: {fileID: 1656917362}
 --- !u!1 &963194225
 GameObject:
