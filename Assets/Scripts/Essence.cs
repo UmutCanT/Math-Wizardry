@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class Essence : MonoBehaviour
 {
-    float fallingSpeed;
+    Rigidbody rbody;
+
+    float fallingSpeedNormal = 10f;
+    float fallingSpeedEffected = 20f;
+
+    void Awake()
+    {
+        rbody = gameObject.GetComponent<Rigidbody>();
+        rbody.drag = 100 / fallingSpeedNormal;
+    }
+
     // Start is called before the first frame update
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            other.gameObject.SetActive(false);
+            rbody.drag = 100 / fallingSpeedEffected;
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
+}   
