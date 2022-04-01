@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     void PlayerSpawn()
     {
         GameObject spawnedPlayer = Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity) as GameObject;
-        spawnedPlayer.GetComponent<Answering>().onAnswer += SetQuestion;
+        spawnedPlayer.GetComponent<Answering>().OnAnswer += SetQuestion;
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         GameObject essence = EssencePool.SharedInstance.GetEssences();
         if (essence != null)
         {
-            essence.transform.position = EssencePosition(i);
+            essence.transform.position = EssencePosition(i);            
             essence.transform.rotation = Quaternion.identity;
             essence.SetActive(true);
         }

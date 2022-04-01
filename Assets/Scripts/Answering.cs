@@ -7,10 +7,10 @@ public class Answering : MonoBehaviour
 {
     GameManager gameManager;
 
-    public event Action onCorrectAnswer;
-    public event Action onWrongAnswer;
-    public event Action onAnswer;
-    public event Action onBonusGain;
+    public event Action OnCorrectAnswer;
+    public event Action OnWrongAnswer;
+    public event Action OnAnswer;
+    public event Action OnBonusGain;
 
     int correctAnswerCounter;
     int requiredAmountForBonus = 1;
@@ -30,7 +30,7 @@ public class Answering : MonoBehaviour
         if (other.CompareTag("Essence"))
         {
             CheckAnswer(other);
-            onAnswer();
+            OnAnswer();
         }
     }
     
@@ -39,11 +39,11 @@ public class Answering : MonoBehaviour
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
             Debug.Log("Correct ");
-            onCorrectAnswer();
+            OnCorrectAnswer();
             correctAnswerCounter++;
             if (correctAnswerCounter >= requiredAmountForBonus)
             {
-                onBonusGain();
+                OnBonusGain();
                 correctAnswerCounter = 0;
             }
 
@@ -51,7 +51,7 @@ public class Answering : MonoBehaviour
         else
         {
             Debug.Log("Wrong");
-            onWrongAnswer();
+            OnWrongAnswer();
         }
     }
 }

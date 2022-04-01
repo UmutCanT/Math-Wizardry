@@ -21,7 +21,7 @@ public class Mana : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.GetComponent<Answering>().onBonusGain += ManaGain;
+        gameObject.GetComponent<Answering>().OnBonusGain += ManaGain;
     }
 
     void ManaGain()

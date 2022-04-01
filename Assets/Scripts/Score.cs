@@ -22,7 +22,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().onCorrectAnswer += AddScore;       
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().OnCorrectAnswer += AddScore;       
     }
 
     void AddScore()

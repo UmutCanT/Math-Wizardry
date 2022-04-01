@@ -45,8 +45,7 @@ public class EssencePool : MonoBehaviour
         for (int i = 0; i < essenceCount; i++)
         {
             if (!Essences[i].activeInHierarchy)
-            {
-                Essences[i].GetComponent<Essence>().Status = Statuses.normal;
+            {                              
                 return Essences[i];
             }
         }

@@ -13,7 +13,7 @@ public class HealthUI : MonoBehaviour
     {
         health = FindObjectOfType<Player>().GetComponent<Health>();
         HealthUIUpdate();
-        health.onHealthChange += HealthUIUpdate;
+        health.OnHealthChange += HealthUIUpdate;
     }
 
     // Update is called once per frame

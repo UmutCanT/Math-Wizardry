@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,34 +6,30 @@ using UnityEngine;
 public class Essence : MonoBehaviour
 {
     Rigidbody rbody;
-    Statuses status;
 
-    float fallingSpeedNormal = 10f;
-    float fallingSpeedEffected = 20f;
+    float dragSpeedNormal = 10f;
+    float dragSpeedEffected = 5f;
 
-    public Statuses Status { get => status; set => status = value; }
+    public float DragSpeedNormal { get => dragSpeedNormal; set => dragSpeedNormal = value; }
 
     void Awake()
     {
         rbody = gameObject.GetComponent<Rigidbody>();
-        rbody.drag = 100 / fallingSpeedNormal;
+        rbody.drag = dragSpeedNormal;
     }
 
-    // Start is called before the first frame update
+    void OnDisable()
+    {
+        rbody.velocity = Vector3.zero;
+        rbody.drag = dragSpeedNormal;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
             other.gameObject.SetActive(false);
-            status = Statuses.effected;
-            rbody.drag = 100 / fallingSpeedEffected;
+            rbody.drag = dragSpeedEffected;
         }
-    }
-}
-
-public enum Statuses
-{
-    normal,
-    effected,
-    bonus
+    }   
 }
