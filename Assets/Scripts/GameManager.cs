@@ -54,11 +54,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EssenceReposition(int i)
-    {
-        EssencePool.SharedInstance.Essences[i].transform.position = EssencePosition(i);
-    }
-
     void EssenceActivation(int i)
     {
         GameObject essence = EssencePool.SharedInstance.GetEssences();
@@ -92,15 +87,6 @@ public class GameManager : MonoBehaviour
         }
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
-
-    //public void AssignAnswers(List<GameObject>essences, int[] answers)
-    //{
-    //    AnswerCreator.AnswerShuffle(answers);
-    //    for (int n = 0; n < essences.Count; n++)
-    //    {            
-    //        essences[n].GetComponent<EssenceUI>().SetAnswer(answers[n].ToString());
-    //    }
-    //}
 
     void AssignProblem(MathQuestion question)
     {

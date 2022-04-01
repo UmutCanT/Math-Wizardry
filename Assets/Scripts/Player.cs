@@ -5,10 +5,17 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Ability ability;
+
+    bool ableToCast;
     void Awake()
     {
         gameObject.AddComponent<Health>();
         gameObject.AddComponent<Mana>();
+    }
+    void Start()
+    {
+        GetComponent<Answering>().OnAnswer += CastStatus;
+        CastStatus();    
     }
 
     public void IntializeAbility(Ability selectedAbility)
@@ -16,8 +23,18 @@ public class Player : MonoBehaviour
         ability = selectedAbility;
         ability.Initialize(gameObject);
     }
+
     void OnMouseDown()
     {
-        ability.TriggerAbility();
+        if (ableToCast)
+        {
+            ability.TriggerAbility();
+            ableToCast = false;
+        }        
+    }
+
+    void CastStatus()
+    {
+        ableToCast = true;
     }
 }

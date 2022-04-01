@@ -13,7 +13,6 @@ public class Answering : MonoBehaviour
     public event Action OnBonusGain;
 
     int correctAnswerCounter;
-    int requiredAmountForBonus = 1;
 
     void Awake()
     {
@@ -38,13 +37,12 @@ public class Answering : MonoBehaviour
     {       
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
-            Debug.Log("Correct ");
+            Debug.Log("Correct");
             OnCorrectAnswer();
             correctAnswerCounter++;
-            if (correctAnswerCounter >= requiredAmountForBonus)
+            if (essence.GetComponent<Essence>().Status == Statuses.effected)
             {
                 OnBonusGain();
-                correctAnswerCounter = 0;
             }
 
         }
