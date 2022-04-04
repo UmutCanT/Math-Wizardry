@@ -25,7 +25,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().OnCorrectAnswer += AddScore; 
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Answering>().OnBonusGain += AddBonusScore;       
+        Answering.OnBonusGain += AddBonusScore;       
     }
 
     void AddScore()

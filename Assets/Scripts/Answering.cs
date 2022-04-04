@@ -8,9 +8,14 @@ public class Answering : MonoBehaviour
     GameManager gameManager;
 
     public event Action OnCorrectAnswer;
-    public event Action OnWrongAnswer;
-    public event Action OnAnswer;
-    public event Action OnBonusGain;
+    public static event Action OnWrongAnswer;
+    public static event Action OnAnswer;
+    public static event Action OnBonusGain;
+    public delegate void OnMissCorrect();
+    public static OnMissCorrect MissCorrect = () => { 
+        OnWrongAnswer();
+        OnAnswer();
+    };
 
     int correctAnswerCounter;
 
@@ -21,10 +26,10 @@ public class Answering : MonoBehaviour
 
     void Start()
     {
-        gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();        
+        gameManager = FindObjectOfType<GameManager>().GetComponent<GameManager>();    
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Essence"))
         {
@@ -51,5 +56,5 @@ public class Answering : MonoBehaviour
             Debug.Log("Wrong");
             OnWrongAnswer();
         }
-    }
+    }  
 }

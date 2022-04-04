@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        GetComponent<Answering>().OnAnswer += CastStatus;
+        Answering.OnAnswer += CastStatus;
         CastStatus();    
     }
 
