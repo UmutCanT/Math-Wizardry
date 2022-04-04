@@ -11,7 +11,7 @@ public class ScoreUI : MonoBehaviour
     private void Start()
     {
         ScoreUIUpdate();
-        score.onPointsGain += ScoreUIUpdate;
+        score.OnPointsGain += ScoreUIUpdate;
     }
 
     void ScoreUIUpdate()
