@@ -12,8 +12,6 @@ public class EssencePool : MonoBehaviour
     [SerializeField] GameObject essencePrefab;
     int essenceCount = 4;
 
-    Vector3 spawnPos = new Vector3(0, 5, 0);
-
     public List<GameObject> Essences { get => essences; set => essences = value; }
 
     void Awake()
@@ -34,7 +32,7 @@ public class EssencePool : MonoBehaviour
 
         for (int i = 0; i < essenceCount; i++)
         {
-            essence = Instantiate(essencePrefab, spawnPos, Quaternion.identity);
+            essence = Instantiate(essencePrefab, new Vector3(EssencePositionsX(i), ScreenSize.instance.Height, 0), Quaternion.identity);
             essence.SetActive(false);
             Essences.Add(essence);
         }
@@ -52,4 +50,15 @@ public class EssencePool : MonoBehaviour
         return null;
     }
 
+    float EssencePositionsX(int order)
+    {
+        return order switch
+        {
+            0 => ScreenSize.instance.Width / 4,
+            1 => -ScreenSize.instance.Width / 4,
+            2 => 3 * ScreenSize.instance.Width / 4,
+            3 => -3 * ScreenSize.instance.Width / 4,
+            _ => throw new System.NotImplementedException()
+        };
+    }
 }

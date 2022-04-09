@@ -7,6 +7,7 @@ public class Essence : MonoBehaviour
 {
     Rigidbody rbody;
     Statuses status;
+    Vector3 startingPosition;
 
     float dragSpeedNormal = 10f;
     float dragSpeedEffected = 5f;
@@ -16,13 +17,19 @@ public class Essence : MonoBehaviour
 
     void Awake()
     {
+        startingPosition = transform.position;
         status = Statuses.normal;
         rbody = gameObject.GetComponent<Rigidbody>();
         rbody.drag = dragSpeedNormal;
     }
 
-    void OnDisable()
+    void OnEnable()
     {
+        transform.position = startingPosition;
+    }
+
+    void OnDisable()
+    {       
         status = Statuses.normal;
         rbody.velocity = Vector3.zero;
         rbody.drag = dragSpeedNormal;

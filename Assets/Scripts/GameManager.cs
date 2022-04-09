@@ -23,7 +23,8 @@ public class GameManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        Debug.Log(ScreenSize.instance.Height + " + " + ScreenSize.instance.Width);
         for (int i = 0; i < 4; i++)
         {
             EssenceActivation(i);
@@ -40,12 +41,6 @@ public class GameManager : MonoBehaviour
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void EssenceDeactivation()
     {
         foreach (var essence in EssencePool.SharedInstance.Essences)
@@ -58,23 +53,10 @@ public class GameManager : MonoBehaviour
     {
         GameObject essence = EssencePool.SharedInstance.GetEssences();
         if (essence != null)
-        {
-            essence.transform.position = EssencePosition(i);            
+        {              
             essence.transform.rotation = Quaternion.identity;
             essence.SetActive(true);
         }
-    }
-    //For test
-    Vector3 EssencePosition(int i)
-    {
-        return i switch
-        {
-            0 => new Vector3(-2, 5, 0),
-            1 => new Vector3(-0.75f, 5, 0),
-            2 => new Vector3(0.75f, 5, 0),
-            3 => new Vector3(2, 5, 0),
-            _ => default,
-        };
     }
 
     void SetQuestion()
