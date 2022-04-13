@@ -10,6 +10,6 @@ public class Character : ScriptableObject
 
     [SerializeField] Ability[] abilites;
 
-    public int TotalHealth { get => totalHealth; set => totalHealth = value; }
+    public int TotalHealth { get => totalHealth; }
     public Ability[] Abilites { get => abilites; set => abilites = value; }
 }

@@ -7,7 +7,7 @@ public class Answering : MonoBehaviour
 {
     GameManager gameManager;
 
-    public event Action OnCorrectAnswer;
+    public static event Action OnCorrectAnswer;
     public static event Action OnWrongAnswer;
     public static event Action OnAnswer;
     public static event Action OnBonusGain;

@@ -12,7 +12,11 @@ public class GameManager : MonoBehaviour
 
     //Part for testing
     [SerializeField] Text problem;
+
+    Vector3 playerSpawnPos = new Vector3(0, -2, 0);
+
     int correctAnswer;
+    int essenceCount = 4;
 
     public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
 
@@ -24,18 +28,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(ScreenSize.instance.Height + " + " + ScreenSize.instance.Width);
-        for (int i = 0; i < 4; i++)
-        {
-            EssenceActivation(i);
-        }
+        EssenceActivation();
         SetQuestion();
     }
 
     //Later use with character select system
     void PlayerSpawn()
     {
-        GameObject spawnedPlayer = Instantiate(playerPrefab, new Vector3(0, -2, 0), Quaternion.identity) as GameObject;
+        GameObject spawnedPlayer = Instantiate(playerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;
         Answering.OnAnswer += SetQuestion;
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
@@ -49,24 +49,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void EssenceActivation(int i)
+    void EssenceActivation()
     {
-        GameObject essence = EssencePool.SharedInstance.GetEssences();
-        if (essence != null)
-        {              
-            essence.transform.rotation = Quaternion.identity;
-            essence.SetActive(true);
-        }
+        for (int i = 0; i < essenceCount; i++)
+        {
+            GameObject essence = EssencePool.SharedInstance.GetEssences();
+            if (essence != null)
+            {
+                essence.transform.rotation = Quaternion.identity;
+                essence.SetActive(true);
+            }
+        }      
     }
 
     void SetQuestion()
     {
         EssenceDeactivation();
-        for (int i = 0; i < 4; i++)
-        {
-            EssenceActivation(i);
-            //EssenceReposition(i);
-        }
+        EssenceActivation();
         AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 

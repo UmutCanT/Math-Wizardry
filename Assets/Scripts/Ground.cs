@@ -27,7 +27,10 @@ public class Ground : MonoBehaviour
             {
                 Answering.MissCorrect.Invoke();
             }
-            other.gameObject.SetActive(false);
+            else
+            {
+                other.gameObject.SetActive(false);
+            }           
         }
     }
 }

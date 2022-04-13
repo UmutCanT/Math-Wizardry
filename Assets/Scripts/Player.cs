@@ -7,11 +7,7 @@ public class Player : MonoBehaviour
     Ability ability;
 
     bool ableToCast;
-    void Awake()
-    {
-        gameObject.AddComponent<Health>();
-        gameObject.AddComponent<Mana>();
-    }
+
     void Start()
     {
         Answering.OnAnswer += CastStatus;

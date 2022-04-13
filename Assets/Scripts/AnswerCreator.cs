@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-//Merge with Question Creator ?
 public static class AnswerCreator
 {
     public static int[] AnswerGenerator(int correctAnswer, int[] answers)

@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1619126147}
   - component: {fileID: -8339288483017842566}
   - component: {fileID: -7749660213183550095}
+  - component: {fileID: 6024524827658537330}
+  - component: {fileID: 672737305804126664}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,3 +168,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileForce: 250
+--- !u!114 &6024524827658537330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277651769349167634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0218d40f9c322b14089585214bfc0a88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &672737305804126664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3277651769349167634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e45ce1315122c408325697d57e7236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

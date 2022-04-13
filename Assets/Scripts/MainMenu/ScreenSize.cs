@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScreenSize : MonoBehaviour
 {
-    public static ScreenSize instance;
+    public static ScreenSize instance = null;
 
     float height;
     float width;
@@ -17,6 +17,8 @@ public class ScreenSize : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+
         }else if(instance != this){
             Destroy(gameObject);
         }
