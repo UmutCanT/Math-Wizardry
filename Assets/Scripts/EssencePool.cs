@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Use with this IObjectPool when Unity version upgraded 
 public class EssencePool : MonoBehaviour
 {
     public static EssencePool SharedInstance;
@@ -10,21 +9,14 @@ public class EssencePool : MonoBehaviour
     private List<GameObject> essences = new List<GameObject>();
 
     [SerializeField] GameObject essencePrefab;
-    int essenceCount = 4;
-
-    float essencePositionY = ScreenSize.instance.Height + 1f;
+    readonly int essenceCount = 4;
+    readonly float essencePositionY = ScreenSize.instance.Height + 1f;
     public List<GameObject> Essences { get => essences; set => essences = value; }
 
     void Awake()
     {
         SharedInstance = this;
         CreatingEssences();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
     }
 
     void CreatingEssences()

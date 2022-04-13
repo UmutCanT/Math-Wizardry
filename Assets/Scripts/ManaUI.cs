@@ -13,13 +13,7 @@ public class ManaUI : MonoBehaviour
     {
         mana = FindObjectOfType<Player>().GetComponent<Mana>();
         ManaUIUpdate();
-        mana.onManaChange += ManaUIUpdate;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mana.OnManaChange += ManaUIUpdate;
     }
 
     void ManaUIUpdate()

@@ -16,12 +16,6 @@ public class HealthUI : MonoBehaviour
         health.OnHealthChange += HealthUIUpdate;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void HealthUIUpdate()
     {
         healthText.text = health.CurrentHealth.ToString();

@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu (menuName = "Abilities/QuickAnswerAbility")]
 public class QuickAnswerAbility : Ability
 {
-    public float aliveTime = 5f;
     public Rigidbody projectile;
     SkillCastTriggerable skillCast;
 

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Mana : MonoBehaviour
 {
-    public event Action onManaChange;
+    public event Action OnManaChange;
 
-    int totalManaPool = 8;
+    readonly int totalManaPool = 8;
     int currentMana;
     const int manaGainAmount = 1;
 
@@ -29,7 +29,7 @@ public class Mana : MonoBehaviour
         if (currentMana < totalManaPool)
         {
             currentMana += manaGainAmount;
-            onManaChange();
+            OnManaChange();
         }      
     }
 }
