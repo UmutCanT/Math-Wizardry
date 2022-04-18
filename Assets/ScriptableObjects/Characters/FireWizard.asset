@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfb1564d9aa308f4283b29a94bcbcb8b, type: 3}
-  m_Name: IceWizard
+  m_Name: FireWizard
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3277651769349167634, guid: 90f1d091380d314419e19f8e152a9521,
     type: 3}
-  characterName: Frosty
-  totalHealth: 15
-  material: {fileID: 2100000, guid: 1e3ee2a9a46191e40a600e85a0cb82b1, type: 2}
+  characterName: Cindereina
+  totalHealth: 10
+  material: {fileID: 2100000, guid: adfd573c8afdded4fb4d80c8f47550ae, type: 2}
   abilites:
-  - {fileID: 11400000, guid: f9761804b4dc76f41b1569147837ec89, type: 2}
+  - {fileID: 11400000, guid: 440894813ead0a44394c2eaff6bfbdab, type: 2}

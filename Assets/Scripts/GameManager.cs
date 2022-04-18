@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
     [SerializeField] GameObject playerPrefab;
-    [SerializeField] Character character;
+    Character character;
 
     //Part for testing
     [SerializeField] Text problem;
@@ -35,7 +35,8 @@ public class GameManager : MonoBehaviour
     //Later use with character select system
     void PlayerSpawn()
     {
-        GameObject spawnedPlayer = Instantiate(playerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;
+        character = SelectedPref.Instance.SelectedCharacter;
+        GameObject spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;
         Answering.OnAnswer += SetQuestion;
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
