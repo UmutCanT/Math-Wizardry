@@ -23,7 +23,12 @@ public static class QuestionUI
 
     public static string AssignQuestion (MathQuestion question)
     {
-        return string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
+        if (question.FirstNumber >= question.SecondNumber)
+        {
+            return string.Format("{0} {1} {2}", question.FirstNumber, OperationDecider(question.MathOperation), question.SecondNumber);
+
+        }else
+        return string.Format("{0} {1} {2}", question.SecondNumber, OperationDecider(question.MathOperation), question.FirstNumber);
     }
 
     public static void AssignAnswers(List<GameObject> essences, int[] answers)

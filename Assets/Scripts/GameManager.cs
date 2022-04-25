@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
-    [SerializeField] GameObject playerPrefab;
     Character character;
 
-    //Part for testing
-    [SerializeField] Text problem;
+    [SerializeField] Text questionText;
+    [SerializeField] DynamicDifficulty difficulty;
 
     Vector3 playerSpawnPos = new Vector3(0, -2, 0);
 
@@ -39,6 +38,7 @@ public class GameManager : MonoBehaviour
         GameObject spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;
         Answering.OnAnswer += SetQuestion;
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
+        spawnedPlayer.GetComponent<Health>().OnHealthDepleted += GameOver;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
 
@@ -67,14 +67,22 @@ public class GameManager : MonoBehaviour
     {
         EssenceDeactivation();
         EssenceActivation();
-        AssignProblem(QuestionCreator.QuestionGenerator(mathQuestion));
+        AssignQuestion(QuestionCreator.QuestionGenerator(mathQuestion));
     }
 
-    void AssignProblem(MathQuestion question)
+    void AssignQuestion(MathQuestion question)
     {
         //Later Put-in UI Manager
-        problem.text = QuestionUI.AssignQuestion(question);
+        questionText.text = QuestionUI.AssignQuestion(question);
         QuestionUI.AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         CorrectAnswer = question.CorrectAnswer;
+    }
+
+    void GameOver()
+    {
+        Debug.Log("Game Over");
+        EssenceDeactivation();
+        Answering.OnAnswer -= SetQuestion;
+        questionText.text = "";
     }
 }

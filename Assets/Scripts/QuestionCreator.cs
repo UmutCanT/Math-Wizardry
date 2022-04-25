@@ -1,13 +1,20 @@
 using UnityEngine;
 
 public static class QuestionCreator
-{ 
+{
+    static DynamicDifficulty difficulty;
+
+    static QuestionCreator()
+    {
+        difficulty = GameObject.FindObjectOfType<DynamicDifficulty>();
+    }
+
     public static MathQuestion QuestionGenerator(MathQuestion mathQuestion)
     {
-        MathOperations operation = (MathOperations)Random.Range(0, 4);
-        mathQuestion.MathOperation = operation;
+        //MathOperations operation = (MathOperations)Random.Range(0, 4);
+        mathQuestion.MathOperation = difficulty.OperationRandomizer();
         mathQuestion.Answers = new int[] {0,0,0,0}; 
-        return operation switch
+        return mathQuestion.MathOperation switch
         {
             MathOperations.Addition => Addition(mathQuestion),
             MathOperations.Substraction => Substraction(mathQuestion),
@@ -51,6 +58,5 @@ public static class QuestionCreator
         mathQuestion.SecondNumber = Random.Range(1, 10);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber / mathQuestion.SecondNumber;
         return mathQuestion;
-    }
-    
+    }   
 }

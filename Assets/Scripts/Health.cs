@@ -6,6 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public event Action OnHealthChange;
+    public event Action OnHealthDepleted;
 
     int currentHealth;
     const int damageAmount = 1;
@@ -22,5 +23,9 @@ public class Health : MonoBehaviour
     {
         currentHealth -= damageAmount;
         OnHealthChange();
+        if(currentHealth <= 0)
+        {
+            OnHealthDepleted();
+        }
     }
 }
