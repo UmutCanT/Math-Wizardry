@@ -11,17 +11,19 @@ public class Answering : MonoBehaviour
     public static event Action OnWrongAnswer;
     public static event Action OnAnswer;
     public static event Action OnBonusGain;
+    public static event Action OnProgress;
     public delegate void OnMissCorrect();
     public static OnMissCorrect MissCorrect = () => { 
         OnWrongAnswer();
         OnAnswer();
     };
-
+    int correctAnswerForProgress;
     int correctAnswerCounter;
 
     void Awake()
     {
         correctAnswerCounter = 0;
+        correctAnswerForProgress = 2;
     }
 
     void Start()
@@ -48,6 +50,11 @@ public class Answering : MonoBehaviour
             if (essence.GetComponent<Essence>().Status == Statuses.effected)
             {
                 OnBonusGain();
+            }
+            if(correctAnswerCounter >= correctAnswerForProgress)
+            {
+                OnProgress();
+                correctAnswerForProgress *= 2;
             }
 
         }

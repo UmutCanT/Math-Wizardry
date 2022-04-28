@@ -7,31 +7,13 @@ public class Easy : State
     public Easy(GameObject dynamicDifficulty) : base(dynamicDifficulty)
     {
         DifficultyName = Difficulty.Easy;
+        magnitude = 5;
+        Debug.Log(DifficultyName.ToString());
     }
 
-    public override void Enter()
+    public override State Progress()
     {
-        Debug.Log(DifficultyName);
-        base.Enter();
-    }
-
-    public override void Update()
-    {
-        //if (CanSeePlayer())
-        //{
-        //    nextState = new Pursue(npc, agent, anim, player);
-        //    stage = EVENT.EXIT;
-        //}
-        //else if (Random.Range(0, 100) < 10)
-        //{
-        //    nextState = new Patrol(npc, agent, anim, player);
-        //    stage = EVENT.EXIT;
-        //}
-    }
-
-    public override void Exit()
-    {
-       
-        base.Exit();
+        nextState = new Medium(dynamic);
+        return base.Progress();
     }
 }

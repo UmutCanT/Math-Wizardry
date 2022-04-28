@@ -13,21 +13,48 @@ public class DynamicDifficulty : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        choices.Add(new Choice(MathOperations.Addition, 3));
-        choices.Add(new Choice(MathOperations.Substraction, 3));
-        choices.Add(new Choice(MathOperations.Multiplication, 2));
-        choices.Add(new Choice(MathOperations.Division, 2));
+        OperationRandomizerCreator();
+        foreach (Choice entry in choices)
+        {
+            Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
+        }
+        currentState = new Easy(this.gameObject);
+        Answering.OnProgress += UpdateDifficulty;
+        currentState.Process();
+    }
+
+    void UpdateDifficulty()
+    {
+        currentState = currentState.Progress();
+        currentState.Process();
+    }
+
+    public void MagnitudeOfOperations(int magnitude)
+    {
+        foreach (Choice entry in choices)
+        {
+            entry.Weight = magnitude;
+            Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
+        }
+    }
+
+    void OperationRandomizerCreator()
+    {
+        choices.Add(new Choice(MathOperations.Addition, 25));
+        choices.Add(new Choice(MathOperations.Substraction, 25));
+        choices.Add(new Choice(MathOperations.Multiplication, 25));
+        choices.Add(new Choice(MathOperations.Division, 25));
 
         foreach (Choice entry in choices)
         {
             totalWeight += entry.Weight;
-        }        
+        }
     }
 
     public MathOperations OperationRandomizer()
     {
         int randomNumber = Random.Range(1, totalWeight + 1);
-        Debug.Log("Random Number = " + randomNumber);
+        //Debug.Log("Random Number = " + randomNumber);
         int pos = 0;
         for (int i = 0; i < choices.Count; i++)
         {

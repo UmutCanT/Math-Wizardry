@@ -6,18 +6,13 @@ public class State
 {
     public enum Difficulty 
     {
-        Easy, Medium, Hard
-    }
-
-    public enum Event
-    {
-        Enter, Update, Exit
+        Easy, Medium, Hard, VeryHard
     }
 
     Difficulty difficultyName;
-    protected Event stageOfEvent;
     protected GameObject dynamic;
     protected State nextState;
+    protected int magnitude;
 
     public Difficulty DifficultyName { get => difficultyName; set => difficultyName = value; }
 
@@ -26,41 +21,19 @@ public class State
         dynamic = dynamicDifficulty;
     }
 
-    public virtual void Enter()
+    public void Process()
     {
-        stageOfEvent = Event.Update;
+        dynamic.GetComponent<DynamicDifficulty>().MagnitudeOfOperations(magnitude);
     }
 
-    public virtual void Update()
+    public virtual State Progress()
     {
-        stageOfEvent = Event.Update;
+        Debug.Log("Progressed");
+        return nextState;
     }
 
-    public virtual void Exit()
+    public virtual State Regress()
     {
-        stageOfEvent = Event.Exit;
+        return nextState;
     }
-
-    public State Process()
-    {
-        if (stageOfEvent == Event.Enter)
-        {
-            Enter();
-        }
-
-        if (stageOfEvent == Event.Update)
-        {
-            Update();
-        }
-
-        if (stageOfEvent == Event.Exit)
-        {
-            Exit();
-            return nextState;
-        }
-
-        return this;
-    }
-
-
 }
