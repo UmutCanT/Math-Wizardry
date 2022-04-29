@@ -29,12 +29,12 @@ public class DynamicDifficulty : MonoBehaviour
         currentState.Process();
     }
 
-    public void MagnitudeOfOperations(int magnitude)
+    public void RatioChanger(int[] ratios)
     {
-        foreach (Choice entry in choices)
+        for (int i = 0; i < choices.Count; i++)
         {
-            entry.Weight = magnitude;
-            Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
+            choices[i].Weight = ratios[i];
+            Debug.Log(choices[i].ChoiceName.ToString() + " " + choices[i].Weight);
         }
     }
 
@@ -54,7 +54,7 @@ public class DynamicDifficulty : MonoBehaviour
     public MathOperations OperationRandomizer()
     {
         int randomNumber = Random.Range(1, totalWeight + 1);
-        //Debug.Log("Random Number = " + randomNumber);
+        Debug.Log("Random Number = " + randomNumber);
         int pos = 0;
         for (int i = 0; i < choices.Count; i++)
         {

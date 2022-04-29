@@ -12,7 +12,10 @@ public class State
     Difficulty difficultyName;
     protected GameObject dynamic;
     protected State nextState;
-    protected int magnitude;
+
+    //Operation ratio according to difficulty
+    protected int ratioAdd, ratioSubs, ratioMulti, ratioDivi;
+    int[] operationRatios = new int[4];
 
     public Difficulty DifficultyName { get => difficultyName; set => difficultyName = value; }
 
@@ -23,7 +26,7 @@ public class State
 
     public void Process()
     {
-        dynamic.GetComponent<DynamicDifficulty>().MagnitudeOfOperations(magnitude);
+        dynamic.GetComponent<DynamicDifficulty>().RatioChanger(operationRatios);
     }
 
     public virtual State Progress()
@@ -35,5 +38,13 @@ public class State
     public virtual State Regress()
     {
         return nextState;
+    }
+
+    protected void ArrayValueChanger(int add, int subs, int multi, int divi)
+    {
+        operationRatios.SetValue(add, 0);
+        operationRatios.SetValue(subs, 1);
+        operationRatios.SetValue(multi, 2);
+        operationRatios.SetValue(divi, 3);
     }
 }

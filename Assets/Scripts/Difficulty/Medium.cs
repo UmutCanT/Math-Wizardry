@@ -7,7 +7,11 @@ public class Medium : State
     public Medium(GameObject dynamicDifficulty) : base(dynamicDifficulty)
     {
         DifficultyName = Difficulty.Medium;
-        magnitude = 10;
+        ratioAdd = 30;
+        ratioSubs = 30;
+        ratioMulti = 20;
+        ratioDivi = 20;
+        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
         Debug.Log(DifficultyName.ToString());
     }
 
