@@ -19,13 +19,20 @@ public class DynamicDifficulty : MonoBehaviour
             Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
         }
         currentState = new Easy(this.gameObject);
-        Answering.OnProgress += UpdateDifficulty;
+        Answering.OnProgress += UpdateDifficultyProgress;
+        Health.OnRegress += UpdateDifficultyRegress;
         currentState.Process();
     }
 
-    void UpdateDifficulty()
-    {
+    void UpdateDifficultyProgress()
+    {      
         currentState = currentState.Progress();
+        currentState.Process();
+    }
+
+    void UpdateDifficultyRegress()
+    {
+        currentState = currentState.Regress();
         currentState.Process();
     }
 

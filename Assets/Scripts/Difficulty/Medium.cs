@@ -17,7 +17,7 @@ public class Medium : State
 
     public override State Progress()
     {
-        nextState = new Medium(dynamic);
+        nextState = new Hard(dynamic);
         return base.Progress();
     }
 

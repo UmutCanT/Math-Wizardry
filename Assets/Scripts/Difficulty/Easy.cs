@@ -20,4 +20,11 @@ public class Easy : State
         nextState = new Medium(dynamic);
         return base.Progress();
     }
+
+    public override State Regress()
+    {
+        nextState = this;
+        return base.Regress();
+    }
+
 }

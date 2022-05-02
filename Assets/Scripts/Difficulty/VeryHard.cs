@@ -2,17 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VeryHard : MonoBehaviour
+public class VeryHard : State
 {
-    // Start is called before the first frame update
-    void Start()
+    public VeryHard(GameObject dynamicDifficulty) : base(dynamicDifficulty)
     {
-        
+        DifficultyName = Difficulty.VeryHard;
+        ratioAdd = 15;
+        ratioSubs = 15;
+        ratioMulti = 35;
+        ratioDivi = 35;
+        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        Debug.Log(DifficultyName.ToString());
     }
 
-    // Update is called once per frame
-    void Update()
+    public override State Progress()
     {
-        
+        nextState = this;
+        return base.Progress();
+    }
+
+    public override State Regress()
+    {
+        nextState = new Hard(dynamic);
+        return base.Regress();
     }
 }

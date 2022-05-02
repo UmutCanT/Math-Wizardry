@@ -37,6 +37,7 @@ public class State
 
     public virtual State Regress()
     {
+        Debug.Log("Regressed");
         return nextState;
     }
 
