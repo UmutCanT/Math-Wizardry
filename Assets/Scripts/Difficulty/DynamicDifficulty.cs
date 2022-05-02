@@ -14,10 +14,10 @@ public class DynamicDifficulty : MonoBehaviour
     void Awake()
     {
         OperationRandomizerCreator();
-        foreach (Choice entry in choices)
-        {
-            Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
-        }
+        //foreach (Choice entry in choices)
+        //{
+        //    Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
+        //}
         currentState = new Easy(this.gameObject);
         Answering.OnProgress += UpdateDifficultyProgress;
         Health.OnRegress += UpdateDifficultyRegress;
@@ -41,7 +41,7 @@ public class DynamicDifficulty : MonoBehaviour
         for (int i = 0; i < choices.Count; i++)
         {
             choices[i].Weight = ratios[i];
-            Debug.Log(choices[i].ChoiceName.ToString() + " " + choices[i].Weight);
+            //Debug.Log(choices[i].ChoiceName.ToString() + " " + choices[i].Weight);
         }
     }
 

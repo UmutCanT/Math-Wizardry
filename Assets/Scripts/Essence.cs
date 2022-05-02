@@ -9,17 +9,27 @@ public class Essence : MonoBehaviour
     Statuses status;
     Vector3 startingPosition;
 
+    //Lower is faster 
     float dragSpeedNormal = 10f;
-    float dragSpeedEffected = 5f;
+    readonly float dragSpeedEffected = 2f;
+    readonly float acceleration = 0.15f;
+    float glidingSpeedMin = 9f;
+    float glidingSpeedMax = 10f;
 
     public float DragSpeedNormal { get => dragSpeedNormal; set => dragSpeedNormal = value; }
     public Statuses Status { get => status; set => status = value; }
+    public float GlidingSpeedMin { get => glidingSpeedMin; set => glidingSpeedMin = value; }
+    public float GlidingSpeedMax { get => glidingSpeedMax; set => glidingSpeedMax = value; }
 
     void Awake()
     {
         startingPosition = transform.position;
         status = Statuses.normal;
         rbody = gameObject.GetComponent<Rigidbody>();
+        dragSpeedNormal = glidingSpeedMax;
+    }
+    void Start()
+    {       
         rbody.drag = dragSpeedNormal;
     }
 
@@ -32,15 +42,25 @@ public class Essence : MonoBehaviour
     {       
         status = Statuses.normal;
         rbody.velocity = Vector3.zero;
-        rbody.drag = dragSpeedNormal;
+        rbody.drag = DragSpeed();
+        Debug.Log(rbody.drag);
     }
+
+    float DragSpeed()
+    {
+        if(dragSpeedNormal > glidingSpeedMin)
+        {
+            dragSpeedNormal -= acceleration;
+        }
+        return dragSpeedNormal;
+    } 
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Projectile"))
         {
             other.gameObject.SetActive(false);
-            rbody.drag = dragSpeedEffected;
+            rbody.drag = dragSpeedNormal/dragSpeedEffected;
             status = Statuses.effected;
         }
     }   
