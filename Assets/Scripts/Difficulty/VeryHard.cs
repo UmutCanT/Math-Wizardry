@@ -12,6 +12,8 @@ public class VeryHard : State
         ratioMulti = 35;
         ratioDivi = 35;
         ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        normalPoint = 30;
+        bonusPoint = 15;
         Debug.Log(DifficultyName.ToString());
     }
 

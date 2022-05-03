@@ -11,7 +11,9 @@ public class Easy : State
         ratioSubs = 40;
         ratioMulti = 10;
         ratioDivi = 10;
-        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);       
+        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        normalPoint = 10;
+        bonusPoint = 5;
         Debug.Log(DifficultyName.ToString());
     }
 

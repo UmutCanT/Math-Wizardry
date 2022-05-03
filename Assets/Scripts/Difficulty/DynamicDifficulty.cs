@@ -6,35 +6,15 @@ using Random = UnityEngine.Random;
 
 public class DynamicDifficulty : MonoBehaviour
 {
-    //State currentState;
+    [SerializeField]Score score;
     List<Choice> choices = new List<Choice>();
     int totalWeight;
 
-    // Start is called before the first frame update
-    //void Awake()
-    //{
-    //    //OperationRandomizerCreator();       
-    //    //foreach (Choice entry in choices)
-    //    //{
-    //    //    Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
-    //    //}
-    //    //currentState = new Easy(this.gameObject);
-    //    //Answering.OnProgress += UpdateDifficultyProgress;
-    //    //Health.OnRegress += UpdateDifficultyRegress;
-    //    //currentState.Process();
-    //}
-
-    //void UpdateDifficultyProgress()
-    //{      
-    //    currentState = currentState.Progress();
-    //    currentState.Process();
-    //}
-
-    //void UpdateDifficultyRegress()
-    //{
-    //    currentState = currentState.Regress();
-    //    currentState.Process();
-    //}
+    public void DifficultyPoints(int point, int bonus)
+    {
+        score.Point = point;
+        score.BonusPoint = bonus;
+    }
 
     public void RatioChanger(int[] ratios)
     {

@@ -17,6 +17,10 @@ public class State
     protected int ratioAdd, ratioSubs, ratioMulti, ratioDivi;
     int[] operationRatios = new int[4];
 
+    //Points according to difficulty
+    protected int normalPoint;
+    protected int bonusPoint;
+
     public Difficulty DifficultyName { get => difficultyName; set => difficultyName = value; }
 
     public State(DynamicDifficulty dynamicDifficulty)
@@ -27,6 +31,7 @@ public class State
     public void Process()
     {
         dynamic.RatioChanger(operationRatios);
+        dynamic.DifficultyPoints(normalPoint, bonusPoint);
     }
 
     public virtual State Progress()

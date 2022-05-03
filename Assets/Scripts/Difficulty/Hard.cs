@@ -12,6 +12,8 @@ public class Hard : State
         ratioMulti = 25;
         ratioDivi = 25;
         ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        normalPoint = 20;
+        bonusPoint = 10;
         Debug.Log(DifficultyName.ToString());
     }
 

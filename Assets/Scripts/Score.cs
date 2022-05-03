@@ -10,7 +10,9 @@ public class Score : MonoBehaviour
     int point;
     int bonusPoint;
 
-    public int TotalScore { get => totalScore; set => totalScore = value; }
+    public int TotalScore { get => totalScore;}
+    public int Point { get => point; set => point = value; }
+    public int BonusPoint { get => bonusPoint; set => bonusPoint = value; }
 
     void Awake()
     {
