@@ -6,35 +6,35 @@ using Random = UnityEngine.Random;
 
 public class DynamicDifficulty : MonoBehaviour
 {
-    State currentState;
+    //State currentState;
     List<Choice> choices = new List<Choice>();
     int totalWeight;
 
     // Start is called before the first frame update
-    void Awake()
-    {
-        OperationRandomizerCreator();
-        //foreach (Choice entry in choices)
-        //{
-        //    Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
-        //}
-        currentState = new Easy(this.gameObject);
-        Answering.OnProgress += UpdateDifficultyProgress;
-        Health.OnRegress += UpdateDifficultyRegress;
-        currentState.Process();
-    }
+    //void Awake()
+    //{
+    //    //OperationRandomizerCreator();       
+    //    //foreach (Choice entry in choices)
+    //    //{
+    //    //    Debug.Log(entry.ChoiceName.ToString() + " " + entry.Weight);
+    //    //}
+    //    //currentState = new Easy(this.gameObject);
+    //    //Answering.OnProgress += UpdateDifficultyProgress;
+    //    //Health.OnRegress += UpdateDifficultyRegress;
+    //    //currentState.Process();
+    //}
 
-    void UpdateDifficultyProgress()
-    {      
-        currentState = currentState.Progress();
-        currentState.Process();
-    }
+    //void UpdateDifficultyProgress()
+    //{      
+    //    currentState = currentState.Progress();
+    //    currentState.Process();
+    //}
 
-    void UpdateDifficultyRegress()
-    {
-        currentState = currentState.Regress();
-        currentState.Process();
-    }
+    //void UpdateDifficultyRegress()
+    //{
+    //    currentState = currentState.Regress();
+    //    currentState.Process();
+    //}
 
     public void RatioChanger(int[] ratios)
     {
@@ -45,7 +45,7 @@ public class DynamicDifficulty : MonoBehaviour
         }
     }
 
-    void OperationRandomizerCreator()
+    public void OperationRandomizerCreator()
     {
         choices.Add(new Choice(MathOperations.Addition, 25));
         choices.Add(new Choice(MathOperations.Substraction, 25));

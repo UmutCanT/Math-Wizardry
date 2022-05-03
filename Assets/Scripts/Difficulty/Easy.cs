@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Easy : State
 {
-    public Easy(GameObject dynamicDifficulty) : base(dynamicDifficulty)
+    public Easy(DynamicDifficulty dynamicDifficulty) : base(dynamicDifficulty)
     {
         DifficultyName = Difficulty.Easy;
         ratioAdd = 40;
         ratioSubs = 40;
         ratioMulti = 10;
         ratioDivi = 10;
-        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);       
         Debug.Log(DifficultyName.ToString());
     }
 

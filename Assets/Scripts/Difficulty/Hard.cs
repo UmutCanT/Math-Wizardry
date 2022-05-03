@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Hard : State
 {
-    public Hard(GameObject dynamicDifficulty) : base(dynamicDifficulty)
+    public Hard(DynamicDifficulty dynamicDifficulty) : base(dynamicDifficulty)
     {
         DifficultyName = Difficulty.Hard;
         ratioAdd = 25;

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
     Character character;
+    State currentState;
 
     [SerializeField] Text questionText;
     [SerializeField] DynamicDifficulty difficulty;
@@ -22,6 +23,12 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         PlayerSpawn();
+        //Answering.OnAnswer += SetQuestion;
+        difficulty.OperationRandomizerCreator();
+        currentState = new Easy(difficulty);
+        //Answering.OnProgress += UpdateDifficultyProgress;
+        //Health.OnRegress += UpdateDifficultyRegress;
+        currentState.Process();
     }
 
     // Start is called before the first frame update
@@ -30,13 +37,18 @@ public class GameManager : MonoBehaviour
         EssenceActivation();
         SetQuestion();
     }
+    void OnEnable()
+    {
+        Answering.OnAnswer += SetQuestion;
+        Answering.OnProgress += UpdateDifficultyProgress;
+        Health.OnRegress += UpdateDifficultyRegress;
+    }
 
     //Later use with character select system
     void PlayerSpawn()
     {
         character = SelectedPref.Instance.SelectedCharacter;
-        GameObject spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;
-        Answering.OnAnswer += SetQuestion;
+        GameObject spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Health>().OnHealthDepleted += GameOver;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
@@ -76,6 +88,18 @@ public class GameManager : MonoBehaviour
         questionText.text = QuestionUI.AssignQuestion(question);
         QuestionUI.AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         CorrectAnswer = question.CorrectAnswer;
+    }
+
+    void UpdateDifficultyProgress()
+    {
+        currentState = currentState.Progress();
+        currentState.Process();
+    }
+
+    void UpdateDifficultyRegress()
+    {
+        currentState = currentState.Regress();
+        currentState.Process();
     }
 
     void GameOver()

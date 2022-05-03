@@ -10,7 +10,7 @@ public class State
     }
 
     Difficulty difficultyName;
-    protected GameObject dynamic;
+    protected DynamicDifficulty dynamic;
     protected State nextState;
 
     //Operation ratio according to difficulty
@@ -19,14 +19,14 @@ public class State
 
     public Difficulty DifficultyName { get => difficultyName; set => difficultyName = value; }
 
-    public State(GameObject dynamicDifficulty)
+    public State(DynamicDifficulty dynamicDifficulty)
     {
         dynamic = dynamicDifficulty;
     }
 
     public void Process()
     {
-        dynamic.GetComponent<DynamicDifficulty>().RatioChanger(operationRatios);
+        dynamic.RatioChanger(operationRatios);
     }
 
     public virtual State Progress()

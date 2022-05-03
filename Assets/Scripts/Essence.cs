@@ -13,13 +13,11 @@ public class Essence : MonoBehaviour
     float dragSpeedNormal = 10f;
     readonly float dragSpeedEffected = 2f;
     readonly float acceleration = 0.15f;
-    float glidingSpeedMin = 9f;
+    float glidingSpeedMin = 5f;
     float glidingSpeedMax = 10f;
 
     public float DragSpeedNormal { get => dragSpeedNormal; set => dragSpeedNormal = value; }
     public Statuses Status { get => status; set => status = value; }
-    public float GlidingSpeedMin { get => glidingSpeedMin; set => glidingSpeedMin = value; }
-    public float GlidingSpeedMax { get => glidingSpeedMax; set => glidingSpeedMax = value; }
 
     void Awake()
     {
