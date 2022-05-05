@@ -5,11 +5,11 @@ public static class AnswerCreator
 {
     public static int[] AnswerGenerator(int correctAnswer, int[] answers)
     {
-        for (int n = 0; n < answers.Length - 1; n++)
+        answers[0] = correctAnswer;
+        for (int n = 1; n < answers.Length; n++)
         {
-            answers[n] = AnswerBounds(correctAnswer);
-        }
-        answers[3] = correctAnswer;
+            answers[n] = AnswerBounds(correctAnswer, answers);
+        }      
         return answers;
     }
 
@@ -24,7 +24,7 @@ public static class AnswerCreator
         }
     }
 
-    static int AnswerBounds(int correctAnswer)
+    static int AnswerBounds(int correctAnswer, int[] answers)
     {
         int number;
 
@@ -33,22 +33,38 @@ public static class AnswerCreator
             do
             {
                 number = Random.Range(0, 10);                
-            } while (number == correctAnswer);
+            } while (CheckUniqueness(number, answers));
             return number;
         }
         else if (correctAnswer <= 100 && correctAnswer > 10)
         {
             do
             {
-                number = Random.Range(correctAnswer - 10, correctAnswer + 20);
-            } while (number == correctAnswer);
+                number = Random.Range(correctAnswer - 10, correctAnswer + 15);
+            } while (CheckUniqueness(number, answers));
             return number;
         }
         else
         {
             int quotient = correctAnswer / 10;
-            int reminder = correctAnswer % 10;           
-            return (Random.Range(quotient + 1, quotient + 5) * 10) + reminder;
+            int reminder = correctAnswer % 10;
+            do
+            {
+                number = (Random.Range(quotient + 1, quotient + 5) * 10) + reminder;
+            } while (CheckUniqueness(number, answers));
+            return number;
         }
+    }
+
+    static bool CheckUniqueness(int number, int[] answers)
+    {
+        for (int n = 0; n < answers.Length; n++)
+        {
+            if(answers[n] == number)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
