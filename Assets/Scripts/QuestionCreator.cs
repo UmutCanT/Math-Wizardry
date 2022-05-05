@@ -11,7 +11,6 @@ public static class QuestionCreator
 
     public static MathQuestion QuestionGenerator(MathQuestion mathQuestion)
     {
-        //MathOperations operation = (MathOperations)Random.Range(0, 4);
         mathQuestion.MathOperation = difficulty.OperationRandomizer();
         mathQuestion.Answers = new int[] {0,0,0,0}; 
         return mathQuestion.MathOperation switch
