@@ -9,6 +9,9 @@ public class DynamicDifficulty : MonoBehaviour
     [SerializeField]Score score;
     List<Choice> choices = new List<Choice>();
     int totalWeight;
+    //Addition first/second, Substraction first/second Division first [0]:min [1]:max
+    //Multiplication first/second, Division second [2]:min [3]:max
+    int[] questionNumberRange = new int[4];
 
     public void DifficultyPoints(int point, int bonus)
     {
@@ -22,6 +25,14 @@ public class DynamicDifficulty : MonoBehaviour
         {
             choices[i].Weight = ratios[i];
             //Debug.Log(choices[i].ChoiceName.ToString() + " " + choices[i].Weight);
+        }
+    }
+
+    public void QuestionRangeChanger(int[] newRange)
+    {
+        for (int i = 0; i < questionNumberRange.Length; i++)
+        {
+            questionNumberRange[i] = newRange[i];
         }
     }
 
@@ -52,6 +63,15 @@ public class DynamicDifficulty : MonoBehaviour
             pos += choices[i].Weight;
         }
         return MathOperations.Addition;
+    }
+
+    public int QuestionNumberRange(bool choosenRange)
+    {
+        if (choosenRange)
+        {
+            return Random.Range(questionNumberRange[0], questionNumberRange[1]);
+        }else
+            return Random.Range(questionNumberRange[2], questionNumberRange[3]);
     }
 }
 public class Choice

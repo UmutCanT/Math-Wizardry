@@ -12,6 +12,13 @@ public class Medium : State
         ratioMulti = 20;
         ratioDivi = 20;
         ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+
+        firstMin = 20;
+        firstMax = 201;
+        secondMin = 1;
+        secondMax = 21;
+        ArrayValueChanger2(firstMin, firstMax, secondMin, secondMax);
+
         normalPoint = 15;
         bonusPoint = 8;
         Debug.Log(DifficultyName.ToString());

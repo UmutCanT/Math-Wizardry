@@ -41,7 +41,7 @@ public class Essence : MonoBehaviour
         status = Statuses.normal;
         rbody.velocity = Vector3.zero;
         rbody.drag = DragSpeed();
-        Debug.Log(rbody.drag);
+        //Debug.Log(rbody.drag);
     }
 
     float DragSpeed()

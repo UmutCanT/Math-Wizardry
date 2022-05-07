@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class QuestionCreator
 {
-    static DynamicDifficulty difficulty;
+    static readonly DynamicDifficulty difficulty;
 
     static QuestionCreator()
     {
@@ -25,37 +25,41 @@ public static class QuestionCreator
 
     static MathQuestion Addition(MathQuestion mathQuestion)
     {
-        mathQuestion.FirstNumber = Random.Range(0, 100);
-        mathQuestion.SecondNumber = Random.Range(0, 100);
+        mathQuestion.FirstNumber = difficulty.QuestionNumberRange(true);
+        mathQuestion.SecondNumber = difficulty.QuestionNumberRange(true);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber + mathQuestion.SecondNumber;
+        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
     static MathQuestion Substraction(MathQuestion mathQuestion)
     {
-        mathQuestion.FirstNumber = Random.Range(0, 100);
-        mathQuestion.SecondNumber = Random.Range(0, 100);
+        mathQuestion.FirstNumber = difficulty.QuestionNumberRange(true);
+        mathQuestion.SecondNumber = difficulty.QuestionNumberRange(true);
         if (mathQuestion.FirstNumber >= mathQuestion.SecondNumber)
         {
             mathQuestion.CorrectAnswer = mathQuestion.FirstNumber - mathQuestion.SecondNumber;
         }else
             mathQuestion.CorrectAnswer = mathQuestion.SecondNumber - mathQuestion.FirstNumber;
+        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
     static MathQuestion Multiplication(MathQuestion mathQuestion)
     {
-        mathQuestion.FirstNumber = Random.Range(0, 20);
-        mathQuestion.SecondNumber = Random.Range(0, 50);
+        mathQuestion.FirstNumber = difficulty.QuestionNumberRange(false);
+        mathQuestion.SecondNumber = difficulty.QuestionNumberRange(false);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber * mathQuestion.SecondNumber;
+        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
     static MathQuestion Division(MathQuestion mathQuestion)
     {
-        mathQuestion.FirstNumber = Random.Range(10, 100);
-        mathQuestion.SecondNumber = Random.Range(1, 10);
+        mathQuestion.FirstNumber = difficulty.QuestionNumberRange(true);
+        mathQuestion.SecondNumber = difficulty.QuestionNumberRange(false);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber / mathQuestion.SecondNumber;
+        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }   
 }

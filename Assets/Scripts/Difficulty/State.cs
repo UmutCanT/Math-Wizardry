@@ -17,6 +17,11 @@ public class State
     protected int ratioAdd, ratioSubs, ratioMulti, ratioDivi;
     int[] operationRatios = new int[4];
 
+
+    //Question Number Range according to difficulty
+    protected int firstMin, firstMax, secondMin, secondMax;
+    int[] questionNumberRange = new int[4];
+
     //Points according to difficulty
     protected int normalPoint;
     protected int bonusPoint;
@@ -31,6 +36,7 @@ public class State
     public void Process()
     {
         dynamic.RatioChanger(operationRatios);
+        dynamic.QuestionRangeChanger(questionNumberRange);
         dynamic.DifficultyPoints(normalPoint, bonusPoint);
     }
 
@@ -52,5 +58,13 @@ public class State
         operationRatios.SetValue(subs, 1);
         operationRatios.SetValue(multi, 2);
         operationRatios.SetValue(divi, 3);
+    }
+    //Test
+    protected void ArrayValueChanger2(int add, int subs, int multi, int divi)
+    {
+        questionNumberRange.SetValue(add, 0);
+        questionNumberRange.SetValue(subs, 1);
+        questionNumberRange.SetValue(multi, 2);
+        questionNumberRange.SetValue(divi, 3);
     }
 }
