@@ -15,12 +15,12 @@ public class State
 
     //Operation ratio according to difficulty
     protected int ratioAdd, ratioSubs, ratioMulti, ratioDivi;
-    int[] operationRatios = new int[4];
+    protected int[] operationRatios = new int[4];
 
 
     //Question Number Range according to difficulty
     protected int firstMin, firstMax, secondMin, secondMax;
-    int[] questionNumberRange = new int[4];
+    protected int[] questionNumberRange = new int[4];
 
     //Points according to difficulty
     protected int normalPoint;
@@ -52,19 +52,19 @@ public class State
         return nextState;
     }
 
-    protected void ArrayValueChanger(int add, int subs, int multi, int divi)
+    /// <summary>
+    /// Desired array to change 
+    /// </summary>
+    /// <param name="array"> operationRatios or questionNumberRange </param>
+    /// <param name="first"> ratioAdd or firstMin </param>
+    /// <param name="second"> ratioSubs or firstMax </param>
+    /// <param name="third"> ratioMulti or secondMin </param>
+    /// <param name="fourth"> ratioDivi or secondMax </param>
+    protected void ArrayValueChanger(int[] array, int first, int second, int third, int fourth)
     {
-        operationRatios.SetValue(add, 0);
-        operationRatios.SetValue(subs, 1);
-        operationRatios.SetValue(multi, 2);
-        operationRatios.SetValue(divi, 3);
-    }
-    //Test
-    protected void ArrayValueChanger2(int add, int subs, int multi, int divi)
-    {
-        questionNumberRange.SetValue(add, 0);
-        questionNumberRange.SetValue(subs, 1);
-        questionNumberRange.SetValue(multi, 2);
-        questionNumberRange.SetValue(divi, 3);
+        array.SetValue(first, 0);
+        array.SetValue(second, 1);
+        array.SetValue(third, 2);
+        array.SetValue(fourth, 3);
     }
 }

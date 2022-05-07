@@ -11,13 +11,13 @@ public class Hard : State
         ratioSubs = 25;
         ratioMulti = 25;
         ratioDivi = 25;
-        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        ArrayValueChanger(operationRatios, ratioAdd, ratioSubs, ratioMulti, ratioDivi);
 
         firstMin = 100;
         firstMax = 501;
         secondMin = 10;
         secondMax = 31;
-        ArrayValueChanger2(firstMin, firstMax, secondMin, secondMax);
+        ArrayValueChanger(questionNumberRange, firstMin, firstMax, secondMin, secondMax);
 
         normalPoint = 20;
         bonusPoint = 10;

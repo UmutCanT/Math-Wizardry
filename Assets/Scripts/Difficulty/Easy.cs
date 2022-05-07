@@ -11,13 +11,13 @@ public class Easy : State
         ratioSubs = 40;
         ratioMulti = 10;
         ratioDivi = 10;
-        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        ArrayValueChanger(operationRatios, ratioAdd, ratioSubs, ratioMulti, ratioDivi);
 
         firstMin = 10;
         firstMax = 61;
         secondMin = 1;
         secondMax = 11;
-        ArrayValueChanger2(firstMin, firstMax, secondMin, secondMax);
+        ArrayValueChanger(questionNumberRange, firstMin, firstMax, secondMin, secondMax);
 
         normalPoint = 10;
         bonusPoint = 5;

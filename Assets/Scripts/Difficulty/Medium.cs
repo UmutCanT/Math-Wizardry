@@ -11,13 +11,13 @@ public class Medium : State
         ratioSubs = 30;
         ratioMulti = 20;
         ratioDivi = 20;
-        ArrayValueChanger(ratioAdd, ratioSubs, ratioMulti, ratioDivi);
+        ArrayValueChanger(operationRatios, ratioAdd, ratioSubs, ratioMulti, ratioDivi);
 
         firstMin = 20;
         firstMax = 201;
         secondMin = 1;
         secondMax = 21;
-        ArrayValueChanger2(firstMin, firstMax, secondMin, secondMax);
+        ArrayValueChanger(questionNumberRange, firstMin, firstMax, secondMin, secondMax);
 
         normalPoint = 15;
         bonusPoint = 8;
