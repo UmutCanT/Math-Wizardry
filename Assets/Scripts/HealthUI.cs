@@ -18,6 +18,6 @@ public class HealthUI : MonoBehaviour
 
     void HealthUIUpdate()
     {
-        healthText.text = health.CurrentHealth.ToString();
+        healthText.text = health.CurrentHealth.ToString();       
     }
 }

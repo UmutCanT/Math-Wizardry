@@ -2,32 +2,31 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     MathQuestion mathQuestion;
     Character character;
     State currentState;
+    GameObject spawnedPlayer;
 
-    [SerializeField] Text questionText;
+    //[SerializeField] Text questionText;
     [SerializeField] DynamicDifficulty difficulty;
+    [SerializeField] UiManager uiManager;
 
     Vector3 playerSpawnPos = new Vector3(0, -2, 0);
 
     int correctAnswer;
-    int essenceCount = 4;
+    readonly int essenceCount = 4;
 
     public int CorrectAnswer { get => correctAnswer; set => correctAnswer = value; }
 
     void Awake()
     {
+        uiManager.GameStart();
         PlayerSpawn();
-        //Answering.OnAnswer += SetQuestion;
         difficulty.OperationRandomizerCreator();
-        currentState = new Easy(difficulty);
-        //Answering.OnProgress += UpdateDifficultyProgress;
-        //Health.OnRegress += UpdateDifficultyRegress;
+        currentState = new Easy(difficulty);        
         currentState.Process();
     }
 
@@ -37,6 +36,7 @@ public class GameManager : MonoBehaviour
         EssenceActivation();
         SetQuestion();
     }
+
     void OnEnable()
     {
         Answering.OnAnswer += SetQuestion;
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     void PlayerSpawn()
     {
         character = SelectedPref.Instance.SelectedCharacter;
-        GameObject spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
+        spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Health>().OnHealthDepleted += GameOver;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
@@ -84,8 +84,7 @@ public class GameManager : MonoBehaviour
 
     void AssignQuestion(MathQuestion question)
     {
-        //Later Put-in UI Manager
-        questionText.text = QuestionUI.AssignQuestion(question);
+        uiManager.SetQuestionText(QuestionUI.AssignQuestion(question));
         QuestionUI.AssignAnswers(EssencePool.SharedInstance.Essences, AnswerCreator.AnswerGenerator(question.CorrectAnswer, question.Answers));
         CorrectAnswer = question.CorrectAnswer;
     }
@@ -107,6 +106,9 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         EssenceDeactivation();
         Answering.OnAnswer -= SetQuestion;
-        questionText.text = "";
+        Answering.OnProgress -= UpdateDifficultyProgress;
+        Health.OnRegress -= UpdateDifficultyRegress;
+        spawnedPlayer.GetComponent<Health>().OnHealthDepleted -= GameOver;
+        uiManager.GameOver();
     }
 }
