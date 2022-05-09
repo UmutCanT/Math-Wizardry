@@ -28,7 +28,6 @@ public static class QuestionCreator
         mathQuestion.FirstNumber = difficulty.QuestionNumberRange(true);
         mathQuestion.SecondNumber = difficulty.QuestionNumberRange(true);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber + mathQuestion.SecondNumber;
-        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
@@ -41,7 +40,6 @@ public static class QuestionCreator
             mathQuestion.CorrectAnswer = mathQuestion.FirstNumber - mathQuestion.SecondNumber;
         }else
             mathQuestion.CorrectAnswer = mathQuestion.SecondNumber - mathQuestion.FirstNumber;
-        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
@@ -50,7 +48,6 @@ public static class QuestionCreator
         mathQuestion.FirstNumber = difficulty.QuestionNumberRange(false);
         mathQuestion.SecondNumber = difficulty.QuestionNumberRange(false);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber * mathQuestion.SecondNumber;
-        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }
 
@@ -59,7 +56,6 @@ public static class QuestionCreator
         mathQuestion.FirstNumber = difficulty.QuestionNumberRange(true);
         mathQuestion.SecondNumber = difficulty.QuestionNumberRange(false);
         mathQuestion.CorrectAnswer = mathQuestion.FirstNumber / mathQuestion.SecondNumber;
-        Debug.Log(mathQuestion.FirstNumber + " " + mathQuestion.SecondNumber);
         return mathQuestion;
     }   
 }
