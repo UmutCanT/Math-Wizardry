@@ -20,4 +20,9 @@ public class HealthUI : MonoBehaviour
     {
         healthText.text = health.CurrentHealth.ToString();       
     }
+
+    void OnDisable()
+    {
+        health.OnHealthChange -= HealthUIUpdate;
+    }
 }

@@ -36,4 +36,9 @@ public class Health : MonoBehaviour
             OnHealthDepleted();
         }
     }
+
+    void OnDisable()
+    {
+        Answering.OnWrongAnswer -= Damage;
+    }
 }

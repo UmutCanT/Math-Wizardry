@@ -176,9 +176,6 @@ GameObject:
   m_Component:
   - component: {fileID: 153426130}
   - component: {fileID: 153426131}
-  - component: {fileID: 153426134}
-  - component: {fileID: 153426133}
-  - component: {fileID: 153426132}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -218,46 +215,6 @@ MonoBehaviour:
   scoreUI: {fileID: 2115953500}
   questionUI: {fileID: 1070279256}
   questionText: {fileID: 1656917362}
---- !u!114 &153426132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153426129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9e1ece776fbd6348b1fd5edae45d66d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manaText: {fileID: 665950675}
---- !u!114 &153426133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153426129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ba80e1841cdaa4193a48fad3824106, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 1479519184}
---- !u!114 &153426134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 153426129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb2014a0905fde48a1e21440c7dc6f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 405391082}
-  score: {fileID: 105749927}
 --- !u!1 &353706032
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +227,8 @@ GameObject:
   - component: {fileID: 353706036}
   - component: {fileID: 353706035}
   - component: {fileID: 353706034}
+  - component: {fileID: 353706038}
+  - component: {fileID: 353706033}
   m_Layer: 5
   m_Name: PlayerCanvas
   m_TagString: Untagged
@@ -277,6 +236,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &353706033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353706032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e1ece776fbd6348b1fd5edae45d66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaText: {fileID: 665950675}
 --- !u!114 &353706034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +331,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &353706038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353706032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ba80e1841cdaa4193a48fad3824106, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 1479519184}
 --- !u!1 &376497490
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,6 +2084,7 @@ GameObject:
   - component: {fileID: 2115953503}
   - component: {fileID: 2115953502}
   - component: {fileID: 2115953501}
+  - component: {fileID: 2115953505}
   m_Layer: 5
   m_Name: ScoreCanvas
   m_TagString: Untagged
@@ -2187,3 +2173,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2115953505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115953500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb2014a0905fde48a1e21440c7dc6f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 405391082}
+  score: {fileID: 105749927}

@@ -33,4 +33,9 @@ public class Player : MonoBehaviour
     {
         ableToCast = true;
     }
+
+    void OnDisable()
+    {
+        Answering.OnAnswer -= CastStatus;
+    }
 }

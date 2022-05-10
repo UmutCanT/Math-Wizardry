@@ -32,4 +32,9 @@ public class Mana : MonoBehaviour
             OnManaChange();
         }      
     }
+
+    void OnDisable()
+    {
+        Answering.OnBonusGain -= ManaGain;
+    }
 }

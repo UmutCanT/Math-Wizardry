@@ -8,7 +8,7 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] Text scoreText;
     [SerializeField] Score score;
 
-    private void Start()
+    void Start()
     {
         ScoreUIUpdate();
         score.OnPointsGain += ScoreUIUpdate;
@@ -17,5 +17,10 @@ public class ScoreUI : MonoBehaviour
     void ScoreUIUpdate()
     {
         scoreText.text = score.TotalScore.ToString();
+    }
+
+    void OnDisable()
+    {
+        score.OnPointsGain -= ScoreUIUpdate;
     }
 }

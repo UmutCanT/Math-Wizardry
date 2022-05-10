@@ -39,4 +39,10 @@ public class Score : MonoBehaviour
         totalScore += bonusPoint;
         OnPointsGain();
     }
+
+    void OnDisable()
+    {
+        Answering.OnCorrectAnswer -= AddScore;
+        Answering.OnBonusGain -= AddBonusScore;
+    }
 }

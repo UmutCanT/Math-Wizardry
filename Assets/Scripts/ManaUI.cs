@@ -20,4 +20,9 @@ public class ManaUI : MonoBehaviour
     {
         manaText.text = mana.CurrentMana.ToString();
     }
+
+    void OnDisable()
+    {
+        mana.OnManaChange -= ManaUIUpdate;
+    }
 }
