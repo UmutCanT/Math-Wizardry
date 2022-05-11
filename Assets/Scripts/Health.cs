@@ -6,7 +6,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public event Action OnHealthChange;
-    public event Action OnHealthDepleted;
+    public static event Action OnHealthDepleted;
     public static event Action OnRegress;
 
     int currentHealth;

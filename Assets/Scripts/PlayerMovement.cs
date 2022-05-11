@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Health>().OnHealthDepleted += StopMovement;
+        Health.OnHealthDepleted += StopMovement;
         targetPosition = transform.position;
     }
 
@@ -62,6 +62,6 @@ public class PlayerMovement : MonoBehaviour
 
     void OnDisable()
     {
-        GetComponent<Health>().OnHealthDepleted -= StopMovement;
+        Health.OnHealthDepleted -= StopMovement;
     }
 }

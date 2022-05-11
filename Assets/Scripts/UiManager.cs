@@ -52,6 +52,12 @@ public class UiManager : MonoBehaviour
         gameOverPanel.SetActive(false);
     }
 
+    public void MainMenu()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
+    }
+
     public void SetQuestionText(string text)
     {
         questionText.text = text;
@@ -59,6 +65,7 @@ public class UiManager : MonoBehaviour
 
     public void Restart()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("EssenceCollector");
     }
 }

@@ -42,6 +42,15 @@ public class GameManager : MonoBehaviour
         Answering.OnAnswer += SetQuestion;
         Answering.OnProgress += UpdateDifficultyProgress;
         Health.OnRegress += UpdateDifficultyRegress;
+        Health.OnHealthDepleted += GameOver;
+    }
+
+    void OnDisable()
+    {        
+        Answering.OnAnswer -= SetQuestion;
+        Answering.OnProgress -= UpdateDifficultyProgress;
+        Health.OnRegress -= UpdateDifficultyRegress;
+        Health.OnHealthDepleted -= GameOver;
     }
 
     //Later use with character select system
@@ -50,7 +59,6 @@ public class GameManager : MonoBehaviour
         character = SelectedPref.Instance.SelectedCharacter;
         spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
-        spawnedPlayer.GetComponent<Health>().OnHealthDepleted += GameOver;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
 
@@ -104,11 +112,7 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Game Over");
-        EssenceDeactivation();
-        Answering.OnAnswer -= SetQuestion;
-        Answering.OnProgress -= UpdateDifficultyProgress;
-        Health.OnRegress -= UpdateDifficultyRegress;
-        spawnedPlayer.GetComponent<Health>().OnHealthDepleted -= GameOver;
+        EssenceDeactivation();       
         uiManager.GameOver();
     }
 }
