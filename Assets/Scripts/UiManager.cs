@@ -13,6 +13,14 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject questionUI;
     [SerializeField] Text questionText;
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Menu))
+        {          
+            Pause();
+        }
+    }
+
     public void ShowUI()
     {
         playerUI.SetActive(true);
