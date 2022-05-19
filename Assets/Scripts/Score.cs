@@ -4,6 +4,8 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public event Action OnPointsGain;
+    ScoreDataManager scoreDataManager;
+    HighScoreEntry scoreEntry;
 
     int totalScore;
     //Take bonus points according to difficulty
@@ -24,8 +26,10 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        scoreDataManager = scoreDataManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreDataManager>();
         Answering.OnCorrectAnswer += AddScore; 
-        Answering.OnBonusGain += AddBonusScore;       
+        Answering.OnBonusGain += AddBonusScore;
+        Health.OnHealthDepleted += CheckScoreForSave;
     }
 
     void AddScore()
@@ -42,7 +46,15 @@ public class Score : MonoBehaviour
 
     void OnDisable()
     {
+        Health.OnHealthDepleted -= CheckScoreForSave;
         Answering.OnCorrectAnswer -= AddScore;
-        Answering.OnBonusGain -= AddBonusScore;
+        Answering.OnBonusGain -= AddBonusScore;       
+    }
+
+    void CheckScoreForSave()
+    {
+        scoreEntry.score = totalScore;
+        scoreEntry.magic = "ice";
+        scoreDataManager.AddNewScore(scoreEntry);
     }
 }
