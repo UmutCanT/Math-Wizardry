@@ -8,7 +8,8 @@ public class Character : ScriptableObject
     [SerializeField] GameObject playerPrefab;
     [SerializeField] string characterName = "Name";
     [SerializeField] int totalHealth = 10;
-    [SerializeField] Material material;
+    [SerializeField] Sprite sprite;
+    [SerializeField] RuntimeAnimatorController animController;
 
     [SerializeField] Ability[] abilites;
 
@@ -16,7 +17,8 @@ public class Character : ScriptableObject
     public Ability[] Abilites { get => abilites; set => abilites = value; }
     public GameObject PlayerPrefab { 
         get {
-            playerPrefab.GetComponent<MeshRenderer>().material = material; 
+            playerPrefab.GetComponent<SpriteRenderer>().sprite = sprite;
+            playerPrefab.GetComponent<Animator>().runtimeAnimatorController = animController;
             return playerPrefab; 
         } 
     }

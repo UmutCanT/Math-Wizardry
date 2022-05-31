@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    float movementSpeed = 10f;
-    Vector3 targetPosition;
+    [SerializeField] Animator animator;
+    [SerializeField] SpriteRenderer sRenderer;
+
+    float movementSpeed = 5f;
+    Vector3 targetPosition;   
 
     // Start is called before the first frame update
     void Start()
     {
         Health.OnHealthDepleted += StopMovement;
-        targetPosition = transform.position;
+        targetPosition = transform.position;       
     }
 
     // Update is called once per frame
@@ -33,7 +36,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            animator.SetBool("isMoving", true);
             targetPosition.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+            DirectionChanger();
         }
     }
 
@@ -47,16 +52,30 @@ public class PlayerMovement : MonoBehaviour
         if (targetPosition != transform.position)
         {
             // Move Towards or Lerp? Decide when I use with sprite
-            transform.position = Vector3.Lerp(transform.position, targetPosition, movementSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
         }
         else
         {
+            animator.SetBool("isMoving", false);
             yield return null;
+        }
+    }
+
+    void DirectionChanger()
+    {
+        if (targetPosition.x < transform.position.x)
+        {
+            sRenderer.flipX = true;                     
+        }
+        else if (targetPosition.x >= transform.position.x)
+        {
+            sRenderer.flipX = false;
         }
     }
 
     void StopMovement()
     {
+        animator.SetTrigger("gameOver");
         enabled = false;
     }
 
