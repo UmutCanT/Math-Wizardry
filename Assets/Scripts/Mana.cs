@@ -7,11 +7,12 @@ public class Mana : MonoBehaviour
 {
     public event Action OnManaChange;
 
-    readonly int totalManaPool = 8;
+    int totalMana = 0;
     int currentMana;
     const int manaGainAmount = 1;
 
-    public int CurrentMana { get => currentMana; set => currentMana = value; }
+    public int CurrentMana { get => currentMana; }
+    public int TotalManaPool { get => totalMana; set => totalMana = value; }
 
     void Awake()
     {
@@ -24,13 +25,19 @@ public class Mana : MonoBehaviour
         Answering.OnBonusGain += ManaGain;
     }
 
+    public void ResetMana ()
+    {
+        currentMana = 0;
+        OnManaChange();
+    }
+
     void ManaGain()
     {
-        if (currentMana < totalManaPool)
+        if (currentMana < totalMana)
         {
             currentMana += manaGainAmount;
             OnManaChange();
-        }      
+        }     
     }
 
     void OnDisable()

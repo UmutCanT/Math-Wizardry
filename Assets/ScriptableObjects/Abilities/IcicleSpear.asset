@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: IcicleSpear
   m_EditorClassIdentifier: 
   abilityName: Icicle Spear
-  abilitySprite: {fileID: 0}
-  abilitySound: {fileID: 0}
   abilityBaseCoolDown: 1
-  aliveTime: 5
-  projectile: {fileID: 1054292824, guid: 2dc2402e3d8333d4e97453f51300ab02, type: 3}
+  projectile: {fileID: 2505604367849827301, guid: 66cbd27584b77f84c9ffd6cfb8677cca,
+    type: 3}

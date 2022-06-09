@@ -10,5 +10,4 @@ public class CharacterSelector : MonoBehaviour
     {
         SelectedPref.Instance.SelectedCharacter = characters[characterID];
     }
-
 }

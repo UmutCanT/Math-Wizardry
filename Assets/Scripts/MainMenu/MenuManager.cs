@@ -74,6 +74,11 @@ public class MenuManager : MonoBehaviour
             QuitPanel.SetActive(true);
     }
 
+    public void SetDifficulty(int i)
+    {
+
+    }
+
     public void QuitGame()
     {
 #if UNITY_EDITOR

@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class ManaUI : MonoBehaviour
 {
     [SerializeField] Text manaText;
+    [SerializeField] MeterScript manaPool;
     Mana mana;
 
     // Start is called before the first frame update
     void Start()
     {
         mana = FindObjectOfType<Player>().GetComponent<Mana>();
+        manaPool.SetMaxMana(mana.TotalManaPool);
         ManaUIUpdate();
         mana.OnManaChange += ManaUIUpdate;
     }
@@ -19,6 +21,7 @@ public class ManaUI : MonoBehaviour
     void ManaUIUpdate()
     {
         manaText.text = mana.CurrentMana.ToString();
+        manaPool.SetMana(mana.CurrentMana);
     }
 
     void OnDisable()

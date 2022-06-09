@@ -13,8 +13,9 @@ public class GameManager : MonoBehaviour
     //[SerializeField] Text questionText;
     [SerializeField] DynamicDifficulty difficulty;
     [SerializeField] UiManager uiManager;
+    [SerializeField] MeterScript meterScript;
 
-    Vector3 playerSpawnPos = new Vector3(0, -2, 0);
+    Vector3 playerSpawnPos = new Vector3(0, -1.22f, 0);
 
     int correctAnswer;
     readonly int essenceCount = 4;
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour
         uiManager.GameStart();
         PlayerSpawn();
         difficulty.OperationRandomizerCreator();
-        currentState = new Easy(difficulty);        
+        currentState = StartingDifficulty(SelectedPref.Instance.SelectedDifficulty);        
         currentState.Process();
     }
 
@@ -52,12 +53,25 @@ public class GameManager : MonoBehaviour
         Health.OnHealthDepleted -= GameOver;
     }
 
+    State StartingDifficulty(int selectedDif)
+    {
+        return selectedDif switch
+        {
+            0 => new Easy(difficulty),
+            1 => new Medium(difficulty),
+            2 => new Hard(difficulty),
+            _ => new Medium(difficulty)
+        };
+    }
+
     //Later use with character select system
     void PlayerSpawn()
     {
         character = SelectedPref.Instance.SelectedCharacter;
+        meterScript.Initialize(character);
         spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
         spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
+        spawnedPlayer.GetComponent<Mana>().TotalManaPool = character.TotalMana;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }
 

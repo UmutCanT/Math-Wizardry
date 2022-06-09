@@ -14,9 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 3277651769349167634, guid: 90f1d091380d314419e19f8e152a9521,
     type: 3}
-  characterName: Fire
+  magicType: Fire
   totalHealth: 3
+  totalMana: 4
   sprite: {fileID: 4723107735738678597, guid: dcc5debc64eeab94684ef168a178815f, type: 3}
   animController: {fileID: 22100000, guid: deed4a6b43383a942ab786254383b67d, type: 2}
   abilites:
   - {fileID: 11400000, guid: 440894813ead0a44394c2eaff6bfbdab, type: 2}
+  characterUI:
+  - {fileID: 21300000, guid: 07f1626437c34cd4f91851a0a0bc51d5, type: 3}
+  - {fileID: 21300000, guid: 6a2d33ede9362bb4e8791a5be8371093, type: 3}
+  - {fileID: 21300000, guid: 2c2a68b00d70eba4aa2d6bfdaf1c0612, type: 3}
+  - {fileID: 21300000, guid: b5499b0f3638b9e4c983bade80158cc5, type: 3}
+  magicColor:
+    serializedVersion: 2
+    key0: {r: 0.6313726, g: 0.003921569, b: 0, a: 1}
+    key1: {r: 0.85490197, g: 0.12156863, b: 0.019607844, a: 1}
+    key2: {r: 0.9529412, g: 0.23529412, b: 0.015686275, a: 0}
+    key3: {r: 0.99607843, g: 0.39607844, b: 0.050980393, a: 0}
+    key4: {r: 1, g: 0.75686276, b: 0.12156863, a: 0}
+    key5: {r: 1, g: 0.96862745, b: 0.3647059, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 13107
+    ctime2: 26214
+    ctime3: 39321
+    ctime4: 52428
+    ctime5: 65535
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 6
+    m_NumAlphaKeys: 2

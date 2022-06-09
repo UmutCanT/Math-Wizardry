@@ -4,7 +4,7 @@ public class SkillCastTriggerable : MonoBehaviour
 {
     Rigidbody projectile;
     Rigidbody clonedBullet;
-    public float projectileForce = 15f;
+    public float projectileForce = 2f;
     float aliveTime;
 
     public float AliveTime { get => aliveTime; set => aliveTime = value; }
