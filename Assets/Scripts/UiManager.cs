@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
+    [SerializeField] Text questionText;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject playerUI;
     [SerializeField] GameObject scoreUI;
     [SerializeField] GameObject questionUI;
-    [SerializeField] Text questionText;
-
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Menu))

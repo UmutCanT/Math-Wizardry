@@ -47,7 +47,8 @@ public class GameManager : MonoBehaviour
     }
 
     void OnDisable()
-    {        
+    {
+        Answering.OnAnswer -= SetQuestion;
         Answering.OnProgress -= UpdateDifficultyProgress;
         Health.OnRegress -= UpdateDifficultyRegress;
         Health.OnHealthDepleted -= GameOver;

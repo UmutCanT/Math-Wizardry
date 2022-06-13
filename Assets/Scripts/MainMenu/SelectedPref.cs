@@ -7,7 +7,7 @@ public class SelectedPref : MonoBehaviour
     public static SelectedPref Instance { get; private set; }
     static Character selectedCharacter;
     static int selectedDifficulty;
-
+    
     public Character SelectedCharacter { get => selectedCharacter; set => selectedCharacter = value; }
     public int SelectedDifficulty { get => selectedDifficulty; set => selectedDifficulty = value; }
 
