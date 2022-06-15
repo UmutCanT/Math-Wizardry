@@ -11,6 +11,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject CharacterSelectionPanel;
     [SerializeField] GameObject CreditsPanel;
     [SerializeField] GameObject QuitPanel;
+    [SerializeField] GameObject SettingsPanel;
     [SerializeField] TMPro.TMP_Dropdown difSelection;
     readonly string difficultyKey = "dificultyKey";
 
@@ -68,6 +69,7 @@ public class MenuManager : MonoBehaviour
         CharacterSelectionPanel.SetActive(false);
         CreditsPanel.SetActive(false);
         QuitPanel.SetActive(false);
+        SettingsPanel.SetActive(false);
     }
 
     void QuitPanelBehaviour()
