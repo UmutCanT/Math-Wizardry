@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Fire Ball
   abilityBaseCoolDown: 1
-  projectile: {fileID: 1054292824, guid: 2dc2402e3d8333d4e97453f51300ab02, type: 3}
+  abilitySFX: {fileID: 0}
+  projectile: {fileID: 6456607036231628747, guid: 4bc14babf3dc6f64ca552138e9fa5526,
+    type: 3}

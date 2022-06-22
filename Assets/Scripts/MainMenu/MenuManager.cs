@@ -39,14 +39,24 @@ public class MenuManager : MonoBehaviour
 #endif
     }
 
+    public void PlayButtonSound()
+    {
+        AudioManager.Instance.PlaySound(SoundType.PlayButton);
+    }
+
+    public void PositiveButtonSound()
+    {
+        AudioManager.Instance.PlaySound(SoundType.PositiveButton);
+    }
+
+    public void NegativeButtonSound()
+    {
+        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+    }
+
     public void LoadGameScene()
     {
         SceneManager.LoadScene("EssenceCollector");
-    }
-
-    public void LoadSettingsScene()
-    {
-        SceneManager.LoadScene("Settings");
     }
 
     public void LoadScoreScene()

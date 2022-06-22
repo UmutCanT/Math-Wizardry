@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Icicle Spear
   abilityBaseCoolDown: 1
-  projectile: {fileID: 2505604367849827301, guid: 66cbd27584b77f84c9ffd6cfb8677cca,
+  abilitySFX: {fileID: 0}
+  projectile: {fileID: -5456031083886149152, guid: 889dd67908ff48640a817f0b0074814e,
     type: 3}

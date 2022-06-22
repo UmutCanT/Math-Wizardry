@@ -37,12 +37,14 @@ public class UiManager : MonoBehaviour
 
     public void Pause()
     {
+        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
         pausePanel.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
+        AudioManager.Instance.PlaySound(SoundType.PositiveButton);
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -62,6 +64,7 @@ public class UiManager : MonoBehaviour
 
     public void MainMenu()
     {
+        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
@@ -73,6 +76,7 @@ public class UiManager : MonoBehaviour
 
     public void Restart()
     {
+        AudioManager.Instance.PlaySound(SoundType.PlayButton);
         Time.timeScale = 1f;
         SceneManager.LoadScene("EssenceCollector");
     }
