@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField] Text scoreText;
+    [SerializeField] TMPro.TextMeshProUGUI scoreText;
     [SerializeField] Score score;
 
     void Start()

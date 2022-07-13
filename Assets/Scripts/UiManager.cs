@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
-    [SerializeField] Text questionText;
+    [SerializeField] TMPro.TextMeshProUGUI questionText;
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject playerUI;

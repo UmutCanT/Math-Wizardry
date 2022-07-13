@@ -23,7 +23,7 @@ public class Answering : MonoBehaviour
     void Awake()
     {
         correctAnswerCounter = 0;
-        correctAnswerForProgress = 2;
+        correctAnswerForProgress = 20;
     }
 
     void Start()
@@ -44,7 +44,6 @@ public class Answering : MonoBehaviour
     {       
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
-            Debug.Log("Correct");
             OnCorrectAnswer();
             correctAnswerCounter++;
             if (essence.GetComponent<Essence>().Status == Statuses.effected)
@@ -60,7 +59,6 @@ public class Answering : MonoBehaviour
         }
         else
         {
-            Debug.Log("Wrong");
             OnWrongAnswer();
         }
     }  

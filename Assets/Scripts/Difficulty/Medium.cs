@@ -19,9 +19,8 @@ public class Medium : State
         secondMax = 21;
         ArrayValueChanger(questionNumberRange, firstMin, firstMax, secondMin, secondMax);
 
-        normalPoint = 15;
-        bonusPoint = 8;
-        Debug.Log(DifficultyName.ToString());
+        normalPoint = 20;
+        bonusPoint = 10;
     }
 
     public override State Progress()

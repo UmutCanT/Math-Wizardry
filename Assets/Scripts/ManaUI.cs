@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ManaUI : MonoBehaviour
 {
-    [SerializeField] Text manaText;
     [SerializeField] MeterScript manaPool;
     Mana mana;
 
@@ -20,7 +19,6 @@ public class ManaUI : MonoBehaviour
 
     void ManaUIUpdate()
     {
-        manaText.text = mana.CurrentMana.ToString();
         manaPool.SetMana(mana.CurrentMana);
     }
 

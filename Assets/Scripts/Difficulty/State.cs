@@ -42,13 +42,11 @@ public class State
 
     public virtual State Progress()
     {
-        Debug.Log("Progressed");
         return nextState;
     }
 
     public virtual State Regress()
     {
-        Debug.Log("Regressed");
         return nextState;
     }
 

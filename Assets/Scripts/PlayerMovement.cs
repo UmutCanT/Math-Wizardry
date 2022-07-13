@@ -44,7 +44,14 @@ public class PlayerMovement : MonoBehaviour
 
     void TouchMovement()
     {
-        //TO-DO Touch control movement for phones
+        Touch touch;
+        if(Input.touchCount > 0)
+        {
+            touch = Input.GetTouch(0);
+            animator.SetBool("isMoving", true);
+            targetPosition.x = Camera.main.ScreenToWorldPoint(touch.position).x;
+            DirectionChanger();
+        }
     }
 
     IEnumerator MoveToTargetPos(Vector3 targetPosition)

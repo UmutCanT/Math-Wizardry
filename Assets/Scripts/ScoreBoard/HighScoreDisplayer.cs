@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class HighScoreDisplayer : MonoBehaviour
@@ -33,5 +34,11 @@ public class HighScoreDisplayer : MonoBehaviour
             records[i].text = item.score.ToString();
             i++;
         }
+    }
+
+    public void BackToMain()
+    {
+        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+        SceneManager.LoadScene("MainMenu");
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
     type: 3}
   magicType: Fire
   totalHealth: 3
-  totalMana: 4
+  totalMana: 8
   sprite: {fileID: 4723107735738678597, guid: dcc5debc64eeab94684ef168a178815f, type: 3}
   animController: {fileID: 22100000, guid: deed4a6b43383a942ab786254383b67d, type: 2}
   abilites:

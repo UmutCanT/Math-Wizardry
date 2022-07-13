@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour
 {
-    [SerializeField] Text healthText;
+    [SerializeField] TMPro.TextMeshProUGUI healthText;
     Health health;
 
     // Start is called before the first frame update

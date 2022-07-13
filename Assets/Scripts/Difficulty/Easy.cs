@@ -21,7 +21,6 @@ public class Easy : State
 
         normalPoint = 10;
         bonusPoint = 5;
-        Debug.Log(DifficultyName.ToString());
     }
 
     public override State Progress()

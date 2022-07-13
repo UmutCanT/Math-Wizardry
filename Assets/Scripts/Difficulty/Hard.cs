@@ -19,9 +19,8 @@ public class Hard : State
         secondMax = 31;
         ArrayValueChanger(questionNumberRange, firstMin, firstMax, secondMin, secondMax);
 
-        normalPoint = 20;
-        bonusPoint = 10;
-        Debug.Log(DifficultyName.ToString());
+        normalPoint = 40;
+        bonusPoint = 20;
     }
 
     public override State Progress()

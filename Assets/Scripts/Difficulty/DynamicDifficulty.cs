@@ -20,8 +20,7 @@ public class DynamicDifficulty : MonoBehaviour
     {
         for (int i = 0; i < choices.Count; i++)
         {
-            choices[i].Weight = ratios[i];
-            //Debug.Log(choices[i].ChoiceName.ToString() + " " + choices[i].Weight);
+            choices[i].Weight = ratios[i];          
         }
     }
 
@@ -49,7 +48,6 @@ public class DynamicDifficulty : MonoBehaviour
     public MathOperations OperationRandomizer()
     {
         int randomNumber = Random.Range(1, totalWeight + 1);
-        Debug.Log("Random Number = " + randomNumber);
         int pos = 0;
         for (int i = 0; i < choices.Count; i++)
         {
