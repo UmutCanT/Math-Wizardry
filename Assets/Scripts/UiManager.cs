@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
@@ -10,8 +7,8 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject pausePanel;
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] GameObject playerUI;
-    [SerializeField] GameObject scoreUI;
     [SerializeField] GameObject questionUI;
+    [SerializeField] GameObject pauseButton;
     
     void Update()
     {
@@ -24,15 +21,15 @@ public class UiManager : MonoBehaviour
     public void ShowUI()
     {
         playerUI.SetActive(true);
-        scoreUI.SetActive(true);
         questionUI.SetActive(true);
+        pauseButton.SetActive(true);
     }
 
     public void HideUI()
     {
         playerUI.SetActive(false);
-        scoreUI.SetActive(false);
         questionUI.SetActive(false);
+        pauseButton.SetActive(false);
     }
 
     public void Pause()

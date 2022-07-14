@@ -126,7 +126,6 @@ public class GameManager : MonoBehaviour
     void GameOver()
     {
         Answering.OnAnswer -= SetQuestion;
-        Debug.Log("Game Over");
         EssenceDeactivation();       
         uiManager.GameOver();
     }

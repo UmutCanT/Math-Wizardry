@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class MeterScript : MonoBehaviour
@@ -37,7 +35,7 @@ public class MeterScript : MonoBehaviour
         {
             images[i].sprite = character.CharacterUI[i];
         }
-
+     
         gradient = character.MagicColor;
         
         //myButtonImage = GetComponent<Image>();
@@ -51,14 +49,8 @@ public class MeterScript : MonoBehaviour
 
     public void Ultimate()
     {
-        Debug.Log("ULTIIII");
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().Heal();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Mana>().ResetMana();
         button.interactable = false;
-
     }
-
-    void ButtonInteractionChanger (bool isInteractable)
-    {
-        button.interactable = isInteractable;
-    } 
 }

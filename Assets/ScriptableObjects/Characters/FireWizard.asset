@@ -24,7 +24,7 @@ MonoBehaviour:
   characterUI:
   - {fileID: 21300000, guid: 07f1626437c34cd4f91851a0a0bc51d5, type: 3}
   - {fileID: 21300000, guid: 6a2d33ede9362bb4e8791a5be8371093, type: 3}
-  - {fileID: 21300000, guid: 2c2a68b00d70eba4aa2d6bfdaf1c0612, type: 3}
+  - {fileID: 21300000, guid: 8af31c5847110ce49a5c330d25c69de8, type: 3}
   - {fileID: 21300000, guid: b5499b0f3638b9e4c983bade80158cc5, type: 3}
   magicColor:
     serializedVersion: 2

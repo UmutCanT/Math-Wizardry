@@ -22,6 +22,15 @@ public class Health : MonoBehaviour
         Answering.OnWrongAnswer += Damage;
     }
 
+    public void Heal()
+    {
+        if (currentHealth < 3)
+        {
+            currentHealth += 1;
+            OnHealthChange();
+        }
+    }
+
     void Damage()
     {
         damageCounter++;
