@@ -50,7 +50,7 @@ public static class AnswerCreator
             int reminder = correctAnswer % 10;
             do
             {
-                number = (Random.Range(quotient + 1, quotient + 5) * 10) + reminder;
+                number = (Random.Range(quotient - 5, quotient + 5) * 10) + reminder;
             } while (CheckUniqueness(number, answers));
             return number;
         }
