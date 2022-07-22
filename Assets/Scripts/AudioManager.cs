@@ -26,6 +26,11 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(GetAudioClip(soundType));
     }
 
+    public void PlaySound(SoundType soundType, float volume)
+    {
+        audioSource.PlayOneShot(GetAudioClip(soundType), volume);
+    }
+
     AudioClip GetAudioClip(SoundType soundType)
     {
         foreach (Sound sound in sounds)

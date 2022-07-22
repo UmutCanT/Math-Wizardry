@@ -28,13 +28,19 @@ public class VolumeControl : MonoBehaviour
         
         if (enableSound)
         {
-            slider.value = PlayerPrefs.GetFloat(volumeParameter);
+            if (PlayerPrefs.HasKey(volumeParameter))
+            {
+                slider.value = PlayerPrefs.GetFloat(volumeParameter);
+            }
+            else
+                slider.value = 0.75f;
+            
         }
         else
             slider.value = slider.minValue;
     }
 
-    void Start()
+    void OnEnable()
     {
         slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
     }

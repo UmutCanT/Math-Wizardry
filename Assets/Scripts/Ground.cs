@@ -13,6 +13,7 @@ public class Ground : MonoBehaviour
         {
             if (other.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
             {
+                AudioManager.Instance.PlaySound(SoundType.OnWrong);
                 Answering.MissCorrect.Invoke();
             }
             else

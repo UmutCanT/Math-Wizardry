@@ -10,11 +10,11 @@ public struct Sound
 
 public enum SoundType
 {
-    SkillCast,
-    UltimateCast,
+    MenuChange,
     OnCorrect,
     OnWrong,
-    NegativeButton,
-    PositiveButton,
-    PlayButton
+    BackButton,
+    DiffChangeButton,
+    PlayButton,
+    Heal
 }

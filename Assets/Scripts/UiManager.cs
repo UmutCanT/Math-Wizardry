@@ -34,14 +34,16 @@ public class UiManager : MonoBehaviour
 
     public void Pause()
     {
-        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
         pausePanel.SetActive(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().CanMove = false;
         Time.timeScale = 0f;
     }
 
     public void Resume()
     {
-        AudioManager.Instance.PlaySound(SoundType.PositiveButton);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().CanMove = true;
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
         pausePanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -61,7 +63,7 @@ public class UiManager : MonoBehaviour
 
     public void MainMenu()
     {
-        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }

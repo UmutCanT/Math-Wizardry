@@ -8,23 +8,30 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] SpriteRenderer sRenderer;
 
     float movementSpeed = 5f;
-    Vector3 targetPosition;   
+    Vector3 targetPosition;
+    bool canMove = false;
+
+    public bool CanMove { get => canMove; set => canMove = value; }
 
     // Start is called before the first frame update
     void Start()
     {
         Health.OnHealthDepleted += StopMovement;
-        targetPosition = transform.position;       
+        targetPosition = transform.position;
+        canMove = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (canMove)
+        {
 #if UNITY_EDITOR
-        MouseMovement();
+            MouseMovement();
 #else
         TouchMovement();
 #endif
+        }
     }
 
     void FixedUpdate()
@@ -36,9 +43,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            animator.SetBool("isMoving", true);
-            targetPosition.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-            DirectionChanger();
+            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).y >= -4 * ScreenSize.instance.Height / 9)
+            {
+                animator.SetBool("isMoving", true);
+                targetPosition.x = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
+                DirectionChanger();
+            }          
         }
     }
 
@@ -48,9 +58,12 @@ public class PlayerMovement : MonoBehaviour
         if(Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
-            animator.SetBool("isMoving", true);
-            targetPosition.x = Camera.main.ScreenToWorldPoint(touch.position).x;
-            DirectionChanger();
+            if (Camera.main.ScreenToWorldPoint(touch.position).y >= -4 * ScreenSize.instance.Height / 9)
+            {
+                animator.SetBool("isMoving", true);
+                targetPosition.x = Camera.main.ScreenToWorldPoint(touch.position).x;
+                DirectionChanger();
+            }          
         }
     }
 

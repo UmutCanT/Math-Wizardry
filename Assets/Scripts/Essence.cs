@@ -10,11 +10,11 @@ public class Essence : MonoBehaviour
     Vector3 startingPosition;
 
     //Lower is faster 
-    float dragSpeedNormal = 20f;
+    float dragSpeedNormal = 15f;
     readonly float dragSpeedEffected = 5f;
-    readonly float acceleration = 0.15f;
+    readonly float acceleration = 0.2f;
     float glidingSpeedMin = 5f;
-    float glidingSpeedMax = 20f;
+    float glidingSpeedMax = 15f;
 
     public float DragSpeedNormal { get => dragSpeedNormal; set => dragSpeedNormal = value; }
     public Statuses Status { get => status; set => status = value; }

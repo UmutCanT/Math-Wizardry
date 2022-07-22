@@ -44,6 +44,7 @@ public class Answering : MonoBehaviour
     {       
         if (essence.GetComponent<EssenceUI>().GetAnswer() == gameManager.CorrectAnswer)
         {
+            AudioManager.Instance.PlaySound(SoundType.OnCorrect, 0.3f);
             OnCorrectAnswer();
             correctAnswerCounter++;
             if (essence.GetComponent<Essence>().Status == Statuses.effected)
@@ -53,12 +54,13 @@ public class Answering : MonoBehaviour
             if(correctAnswerCounter >= correctAnswerForProgress)
             {
                 OnProgress();
-                correctAnswerForProgress *= 2;
+                correctAnswerForProgress += 20;
             }
 
         }
         else
         {
+            AudioManager.Instance.PlaySound(SoundType.OnWrong);
             OnWrongAnswer();
         }
     }  

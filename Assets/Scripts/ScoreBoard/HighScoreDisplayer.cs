@@ -12,10 +12,11 @@ public class HighScoreDisplayer : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {       
         scoreDataManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreDataManager>();
         ResetUI();
         UpdateUI();
+        AudioManager.Instance.PlaySound(SoundType.MenuChange);
     }
 
     void ResetUI()
@@ -38,7 +39,7 @@ public class HighScoreDisplayer : MonoBehaviour
 
     public void BackToMain()
     {
-        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
         SceneManager.LoadScene("MainMenu");
     }
 }

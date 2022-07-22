@@ -44,14 +44,19 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundType.PlayButton);
     }
 
-    public void PositiveButtonSound()
+    public void DiffChangeButtonSound()
     {
-        AudioManager.Instance.PlaySound(SoundType.PositiveButton);
+        AudioManager.Instance.PlaySound(SoundType.DiffChangeButton);
     }
 
-    public void NegativeButtonSound()
+    public void BackButtonSound()
     {
-        AudioManager.Instance.PlaySound(SoundType.NegativeButton);
+        AudioManager.Instance.PlaySound(SoundType.BackButton);
+    }
+
+    public void MenuChangeSound()
+    {
+        AudioManager.Instance.PlaySound(SoundType.MenuChange);
     }
 
     public void LoadGameScene()
