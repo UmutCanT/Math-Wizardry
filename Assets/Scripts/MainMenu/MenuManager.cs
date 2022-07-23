@@ -18,6 +18,8 @@ public class MenuManager : MonoBehaviour
     void Start()
     {
         LoadDifficultyValue();
+        difSelection.onValueChanged.AddListener(DiffChangeButtonSound);
+        difSelection.onValueChanged.AddListener(SetDifficulty);
         HidePanels();
     }
 
@@ -44,7 +46,7 @@ public class MenuManager : MonoBehaviour
         AudioManager.Instance.PlaySound(SoundType.PlayButton);
     }
 
-    public void DiffChangeButtonSound()
+    public void DiffChangeButtonSound(int value)
     {
         AudioManager.Instance.PlaySound(SoundType.DiffChangeButton);
     }
@@ -97,9 +99,10 @@ public class MenuManager : MonoBehaviour
             QuitPanel.SetActive(true);
     }
 
-    public void SetDifficulty()
+    public void SetDifficulty(int value)
     {
-        SelectedPref.Instance.SelectedDifficulty = difSelection.value;
+        SelectedPref.Instance.SelectedDifficulty = value;
+        PlayerPrefs.SetInt(difficultyKey, value);
     }
 
     public void OnCharacterSelect(Character character)
@@ -109,7 +112,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SaveDifficultyValue();
+        PlayerPrefs.Save();
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else
@@ -123,11 +126,5 @@ public class MenuManager : MonoBehaviour
         {
             difSelection.value = PlayerPrefs.GetInt(difficultyKey);
         }
-    }
-
-    void SaveDifficultyValue()
-    {
-        PlayerPrefs.SetInt(difficultyKey, difSelection.value);
-        PlayerPrefs.Save();
     }
 }
