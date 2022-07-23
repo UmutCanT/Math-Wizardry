@@ -13,6 +13,7 @@ public class VolumeControl : MonoBehaviour
     [SerializeField] float multiplier = 30f;
     [SerializeField] Toggle toggle;
     bool disableToggleEvent;
+    readonly float defaultValue = 0.75f;
 
     void Awake()
     {
@@ -33,16 +34,16 @@ public class VolumeControl : MonoBehaviour
                 slider.value = PlayerPrefs.GetFloat(volumeParameter);
             }
             else
-                slider.value = 0.75f;
+                slider.value = defaultValue;
             
         }
         else
             slider.value = slider.minValue;
-    }
+    }   
 
     void OnEnable()
     {
-        slider.value = PlayerPrefs.GetFloat(volumeParameter, slider.value);
+        slider.value = PlayerPrefs.GetFloat(volumeParameter, defaultValue);
     }
 
     void OnDisable()

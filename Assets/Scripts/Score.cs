@@ -54,7 +54,7 @@ public class Score : MonoBehaviour
     void CheckScoreForSave()
     {
         scoreEntry.score = totalScore;
-        scoreEntry.magic = "ice";
+        scoreEntry.magic = SelectedPref.Instance.SelectedCharacter.MagicType;
         scoreDataManager.AddNewScore(scoreEntry);
     }
 }

@@ -21,11 +21,13 @@ public class Character : ScriptableObject
     public Sprite[] CharacterUI { get => characterUI; }
     public Gradient MagicColor { get => magicColor; }
     public Ability[] Abilites { get => abilites; set => abilites = value; }
+    public string MagicType { get => magicType; }
+
     public GameObject PlayerPrefab { 
         get {
             playerPrefab.GetComponent<SpriteRenderer>().sprite = sprite;
             playerPrefab.GetComponent<Animator>().runtimeAnimatorController = animController;
             return playerPrefab; 
         } 
-    }  
+    }
 }
