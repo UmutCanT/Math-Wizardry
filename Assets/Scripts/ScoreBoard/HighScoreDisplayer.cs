@@ -26,7 +26,12 @@ public class HighScoreDisplayer : MonoBehaviour
         foreach (var item in records)
         {
             item.text = "";
-        }        
+        }
+        
+        foreach(var item in magicUI)
+        {
+            item.sprite = magicSprite[0];
+        }
     }
 
     void UpdateUI()
@@ -50,9 +55,9 @@ public class HighScoreDisplayer : MonoBehaviour
     {
         return magic switch
         {
-            "Ice" => magicSprite[0],
-            "Fire" => magicSprite[1],
-            _ => throw new System.NotImplementedException(),
+            "Ice" => magicSprite[1],
+            "Fire" => magicSprite[2],
+            _ => magicSprite[0],
         };
     }
 }
