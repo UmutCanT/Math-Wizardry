@@ -15,11 +15,15 @@ public class MenuManager : MonoBehaviour
     [SerializeField] TMPro.TMP_Dropdown difSelection;
     readonly string difficultyKey = "dificultyKey";
 
-    void Start()
+    void Awake()
     {
         LoadDifficultyValue();
         difSelection.onValueChanged.AddListener(DiffChangeButtonSound);
         difSelection.onValueChanged.AddListener(SetDifficulty);
+    }
+
+    void Start()
+    {     
         HidePanels();
     }
 
@@ -48,7 +52,7 @@ public class MenuManager : MonoBehaviour
 
     public void DiffChangeButtonSound(int value)
     {
-        AudioManager.Instance.PlaySound(SoundType.DiffChangeButton);
+        AudioManager.Instance.PlaySound(SoundType.DiffChangeButton, 0.3f);
     }
 
     public void BackButtonSound()
