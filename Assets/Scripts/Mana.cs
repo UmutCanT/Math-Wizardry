@@ -6,6 +6,7 @@ using UnityEngine;
 public class Mana : MonoBehaviour
 {
     public event Action OnManaChange;
+    public static event Action FullManaBonus;
 
     int totalMana = 0;
     int currentMana;
@@ -37,7 +38,11 @@ public class Mana : MonoBehaviour
         {
             currentMana += manaGainAmount;
             OnManaChange();
-        }     
+        }
+        else
+        {
+            FullManaBonus();
+        }    
     }
 
     void OnDisable()

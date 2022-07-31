@@ -30,6 +30,7 @@ public class Score : MonoBehaviour
         Answering.OnCorrectAnswer += AddScore; 
         Answering.OnBonusGain += AddBonusScore;
         Health.OnHealthDepleted += CheckScoreForSave;
+        Mana.FullManaBonus += AddBonusScore;
     }
 
     void AddScore()
@@ -48,7 +49,9 @@ public class Score : MonoBehaviour
     {
         Health.OnHealthDepleted -= CheckScoreForSave;
         Answering.OnCorrectAnswer -= AddScore;
-        Answering.OnBonusGain -= AddBonusScore;       
+        Answering.OnBonusGain -= AddBonusScore; 
+        Mana.FullManaBonus += AddBonusScore;
+
     }
 
     void CheckScoreForSave()

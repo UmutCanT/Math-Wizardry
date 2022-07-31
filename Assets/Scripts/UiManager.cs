@@ -13,9 +13,12 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Menu))
-        {          
-            Pause();
-        }
+        {
+            if (!gameOverPanel.activeInHierarchy)
+            {
+                Pause();
+            }
+        }               
     }
 
     public void ShowUI()
@@ -55,7 +58,7 @@ public class UiManager : MonoBehaviour
     }
 
     public void GameStart()
-    {
+    {      
         ShowUI();
         pausePanel.SetActive(false);
         gameOverPanel.SetActive(false);
@@ -65,7 +68,7 @@ public class UiManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(SoundType.BackButton);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        LoadingManager.Instance.LoadSelectedScene("MainMenu");       
     }
 
     public void SetQuestionText(string text)
@@ -77,6 +80,8 @@ public class UiManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(SoundType.PlayButton);
         Time.timeScale = 1f;
-        SceneManager.LoadScene("EssenceCollector");
+        LoadingManager.Instance.LoadSelectedScene("EssenceCollector");
+
+        //SceneManager.LoadScene("EssenceCollector");
     }
 }

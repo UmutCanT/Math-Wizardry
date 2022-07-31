@@ -48,7 +48,7 @@ public class HighScoreDisplayer : MonoBehaviour
     public void BackToMain()
     {
         AudioManager.Instance.PlaySound(SoundType.BackButton);
-        SceneManager.LoadScene("MainMenu");
+        LoadingManager.Instance.LoadSelectedScene("MainMenu");
     }
 
     Sprite SpriteDecider(string magic)

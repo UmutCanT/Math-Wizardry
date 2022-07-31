@@ -12,8 +12,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject CreditsPanel;
     [SerializeField] GameObject QuitPanel;
     [SerializeField] GameObject SettingsPanel;
+    [SerializeField] GameObject Tutorials;
     [SerializeField] TMPro.TMP_Dropdown difSelection;
     readonly string difficultyKey = "dificultyKey";
+    readonly string tutorialKey = "tutorial";
 
     void Awake()
     {
@@ -45,6 +47,15 @@ public class MenuManager : MonoBehaviour
 #endif
     }
 
+    public void ShowTutorials()
+    {
+        if (!PlayerPrefs.HasKey(tutorialKey))
+        {
+            Tutorials.SetActive(true);
+            PlayerPrefs.SetInt(tutorialKey, 1);
+        }
+    }
+
     public void PlayButtonSound()
     {
         AudioManager.Instance.PlaySound(SoundType.PlayButton);
@@ -67,26 +78,17 @@ public class MenuManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("EssenceCollector");
+        LoadingManager.Instance.LoadSelectedScene("EssenceCollector");
     }
 
     public void LoadScoreScene()
     {
-        SceneManager.LoadScene("ScoreBoard");
-    }
-
-    public void ShowCharacterSelectionPanel()
-    {
-        CharacterSelectionPanel.SetActive(true);
-    }
-
-    public void ShowCreditsPanel()
-    {
-        CreditsPanel.SetActive(true);
+        LoadingManager.Instance.LoadSelectedScene("ScoreBoard");
     }
 
     void HidePanels()
     {
+        Tutorials.SetActive(false);
         CharacterSelectionPanel.SetActive(false);
         CreditsPanel.SetActive(false);
         QuitPanel.SetActive(false);

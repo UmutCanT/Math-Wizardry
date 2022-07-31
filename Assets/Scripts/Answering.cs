@@ -55,8 +55,7 @@ public class Answering : MonoBehaviour
             {
                 OnProgress();
                 correctAnswerForProgress += 20;
-            }
-
+            }          
         }
         else
         {
