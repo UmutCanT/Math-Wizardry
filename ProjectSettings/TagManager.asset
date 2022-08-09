@@ -8,6 +8,7 @@ TagManager:
   - Projectile
   - Ground
   - ScoreManager
+  - Ads
   layers:
   - Default
   - TransparentFX

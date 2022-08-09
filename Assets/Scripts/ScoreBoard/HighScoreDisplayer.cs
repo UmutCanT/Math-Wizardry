@@ -11,10 +11,17 @@ public class HighScoreDisplayer : MonoBehaviour
     [SerializeField] Image[] magicUI;
     [SerializeField] Sprite[] magicSprite;
     ScoreDataManager scoreDataManager;
+    InterstitialAd interstitialAd;
+
+    void Awake()
+    {
+        interstitialAd = GameObject.FindGameObjectWithTag("Ads").GetComponent<InterstitialAd>();
+    }
 
     // Start is called before the first frame update
     void Start()
-    {       
+    {
+        interstitialAd.ShowAd();
         scoreDataManager = GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreDataManager>();
         ResetUI();
         UpdateUI();
