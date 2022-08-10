@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
         uiManager.GameStart();       
         PlayerSpawn();
         difficulty.OperationRandomizerCreator();
-        currentState = StartingDifficulty(SelectedPref.Instance.SelectedDifficulty);        
+        currentState = StartingDifficulty(SelectedPref.Instance.SelectedDifficulty);
         currentState.Process();
     }
 
