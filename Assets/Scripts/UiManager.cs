@@ -80,8 +80,6 @@ public class UiManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(SoundType.PlayButton);
         Time.timeScale = 1f;
-        LoadingManager.Instance.LoadSelectedScene("EssenceCollector");
-
-        //SceneManager.LoadScene("EssenceCollector");
+        LoadingManager.Instance.LoadSelectedScene("EssenceCollector");       
     }
 }
