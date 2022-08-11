@@ -21,6 +21,14 @@ public class UiManager : MonoBehaviour
         }               
     }
 
+    void OnApplicationPause()
+    {
+        if (!gameOverPanel.activeInHierarchy)
+        {
+            Pause();
+        }
+    }
+
     public void ShowUI()
     {
         playerUI.SetActive(true);
