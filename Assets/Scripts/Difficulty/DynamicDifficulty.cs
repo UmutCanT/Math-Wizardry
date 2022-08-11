@@ -20,7 +20,7 @@ public class DynamicDifficulty : MonoBehaviour
     {
         for (int i = 0; i < choices.Count; i++)
         {
-            choices[i].Weight = ratios[i];          
+            choices[i].Weight = ratios[i];           
         }
     }
 

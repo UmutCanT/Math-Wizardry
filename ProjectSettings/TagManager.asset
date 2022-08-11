@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - ScoreManager
   - Ads
+  - Difficulty
   layers:
   - Default
   - TransparentFX

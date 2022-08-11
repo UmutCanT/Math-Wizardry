@@ -10,16 +10,29 @@ public class MeterScript : MonoBehaviour
     [SerializeField] Image[] images;
 
     Character character;
-  
+    int i = 0;
+
+
     public void SetMaxMana (float totalMana)
     {
         slider.maxValue = totalMana;
+        button.interactable = false;
     }
 
     public void SetMana (float mana)
     {
         slider.value = mana;
         images[2].color = gradient.Evaluate(slider.normalizedValue);
+
+        if (slider.value == slider.maxValue)
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void ChangeButtonInteraction(bool isInteractable)
+    {
+        button.interactable = isInteractable;
     }
 
     public void Initialize(Character selectedCharacter)
@@ -31,23 +44,16 @@ public class MeterScript : MonoBehaviour
         }
      
         gradient = character.MagicColor;
-        
-        //myButtonImage = GetComponent<Image>();
-        //abilitySource = GetComponent<AudioSource>();
-        //myButtonImage.sprite = ability.aSprite;
-        //darkMask.sprite = ability.aSprite;
-        //coolDownDuration = ability.aBaseCoolDown;
-        //ability.Initialize(weaponHolder);
-        //AbilityReady();
     }
 
     public void Ultimate()
-    {
-        if (slider.value == slider.maxValue)
+    {       
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().CanHeal())
         {
             AudioManager.Instance.PlaySound(SoundType.Heal);
             GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().Heal();
             GameObject.FindGameObjectWithTag("Player").GetComponent<Mana>().ResetMana();
+            button.interactable = false;
         }        
     }
 }

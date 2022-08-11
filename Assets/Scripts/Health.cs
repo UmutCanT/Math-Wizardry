@@ -10,10 +10,17 @@ public class Health : MonoBehaviour
     public static event Action OnRegress;
 
     int currentHealth;
+    int maxHealth;
     const int damageAmount = 1;
     int damageCounter;
 
     public int CurrentHealth { get => currentHealth; set => currentHealth = value; }
+    public int MaxHealth { get => maxHealth; 
+        set {
+            maxHealth = value;
+            currentHealth = maxHealth;
+        }  
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,13 +29,15 @@ public class Health : MonoBehaviour
         Answering.OnWrongAnswer += Damage;
     }
 
+    public bool CanHeal()
+    {
+        return currentHealth < maxHealth;
+    }
+
     public void Heal()
     {
-        if (currentHealth < 3)
-        {
-            currentHealth += 1;
-            OnHealthChange();
-        }
+        currentHealth += 1;
+        OnHealthChange();
     }
 
     void Damage()

@@ -50,8 +50,7 @@ public class Score : MonoBehaviour
         Health.OnHealthDepleted -= CheckScoreForSave;
         Answering.OnCorrectAnswer -= AddScore;
         Answering.OnBonusGain -= AddBonusScore; 
-        Mana.FullManaBonus += AddBonusScore;
-
+        Mana.FullManaBonus -= AddBonusScore;
     }
 
     void CheckScoreForSave()

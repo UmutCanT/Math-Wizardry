@@ -18,8 +18,8 @@ public class InterstitialAd : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
     // Load content to the Ad Unit:
     public void LoadAd()
     {
-        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).      
         Advertisement.Load(_adUnitId, this);
+        // IMPORTANT! Only load content AFTER initialization (in this example, initialization is handled in a different script).      
     }
 
     // Show the loaded content in the Ad Unit:

@@ -254,6 +254,22 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 136946978, guid: a35f6b536502a764e990900232810f64, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136946978, guid: a35f6b536502a764e990900232810f64, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136946978, guid: a35f6b536502a764e990900232810f64, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136946978, guid: a35f6b536502a764e990900232810f64, type: 3}
+      propertyPath: m_Colors.m_DisabledColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1355095928559367384, guid: a35f6b536502a764e990900232810f64,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1465,7 +1481,7 @@ GameObject:
   - component: {fileID: 376497492}
   m_Layer: 0
   m_Name: DynamicDifficulty
-  m_TagString: Untagged
+  m_TagString: Difficulty
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

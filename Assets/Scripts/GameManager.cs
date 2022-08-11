@@ -10,8 +10,7 @@ public class GameManager : MonoBehaviour
     Character character;
     State currentState;
     GameObject spawnedPlayer;
-
-    //[SerializeField] Text questionText;
+    
     [SerializeField] DynamicDifficulty difficulty;
     [SerializeField] UiManager uiManager;
     [SerializeField] MeterScript meterScript;
@@ -25,11 +24,12 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        uiManager.GameStart();       
+        uiManager.GameStart();
         PlayerSpawn();
         difficulty.OperationRandomizerCreator();
         currentState = StartingDifficulty(SelectedPref.Instance.SelectedDifficulty);
-        currentState.Process();
+        currentState.Process();       
+        QuestionCreator.Initializer();
     }
 
     // Start is called before the first frame update
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         character = SelectedPref.Instance.SelectedCharacter;
         meterScript.Initialize(character);
         spawnedPlayer = Instantiate(character.PlayerPrefab, playerSpawnPos, Quaternion.identity) as GameObject;       
-        spawnedPlayer.GetComponent<Health>().CurrentHealth = character.TotalHealth;
+        spawnedPlayer.GetComponent<Health>().MaxHealth = character.TotalHealth;
         spawnedPlayer.GetComponent<Mana>().TotalManaPool = character.TotalMana;
         spawnedPlayer.GetComponent<Player>().IntializeAbility(character.Abilites[0]);
     }

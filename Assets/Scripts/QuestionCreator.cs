@@ -2,11 +2,11 @@ using UnityEngine;
 
 public static class QuestionCreator
 {
-    static readonly DynamicDifficulty difficulty;
+    static DynamicDifficulty difficulty;
 
-    static QuestionCreator()
+    public static void Initializer()
     {
-        difficulty = GameObject.FindObjectOfType<DynamicDifficulty>();
+        difficulty = GameObject.FindGameObjectWithTag("Difficulty").GetComponent<DynamicDifficulty>();
     }
 
     public static MathQuestion QuestionGenerator(MathQuestion mathQuestion)
