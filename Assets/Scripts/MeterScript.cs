@@ -10,13 +10,15 @@ public class MeterScript : MonoBehaviour
     [SerializeField] Image[] images;
 
     Character character;
-    int i = 0;
-
+    Health health;
+    Mana mana;
 
     public void SetMaxMana (float totalMana)
     {
         slider.maxValue = totalMana;
         button.interactable = false;
+        health = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        mana = GameObject.FindGameObjectWithTag("Player").GetComponent<Mana>();
     }
 
     public void SetMana (float mana)
@@ -27,12 +29,7 @@ public class MeterScript : MonoBehaviour
         if (slider.value == slider.maxValue)
         {
             button.interactable = true;
-        }
-    }
-
-    public void ChangeButtonInteraction(bool isInteractable)
-    {
-        button.interactable = isInteractable;
+        }       
     }
 
     public void Initialize(Character selectedCharacter)
@@ -47,12 +44,12 @@ public class MeterScript : MonoBehaviour
     }
 
     public void Ultimate()
-    {       
-        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().CanHeal())
+    {
+        if (health.CanHeal())
         {
             AudioManager.Instance.PlaySound(SoundType.Heal);
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().Heal();
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Mana>().ResetMana();
+            health.Heal();
+            mana.ResetMana();
             button.interactable = false;
         }        
     }

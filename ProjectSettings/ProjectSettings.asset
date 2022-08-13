@@ -246,7 +246,7 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: Builds/Android/user.keystore'
+  AndroidKeystoreName: '{inproject}: Builds/AAB/user.keystore'
   AndroidKeyaliasName: math wizardry beta
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
