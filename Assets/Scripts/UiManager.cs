@@ -30,17 +30,17 @@ public class UiManager : MonoBehaviour
     }
 
     public void ShowUI()
-    {
-        playerUI.SetActive(true);
+    {        
         questionUI.SetActive(true);
         pauseButton.SetActive(true);
+        playerUI.SetActive(true);
     }
 
     public void HideUI()
     {
-        playerUI.SetActive(false);
         questionUI.SetActive(false);
         pauseButton.SetActive(false);
+        playerUI.SetActive(false);
     }
 
     public void Pause()
