@@ -12,7 +12,7 @@ public class Essence : MonoBehaviour
     //Lower is faster 
     float dragSpeedNormal = 15f;
     readonly float dragSpeedEffected = 5f;
-    readonly float acceleration = 0.2f;
+    readonly float acceleration = 0.15f;
     float glidingSpeedMin = 5f;
     float glidingSpeedMax = 15f;
 

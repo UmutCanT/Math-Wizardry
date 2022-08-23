@@ -25,7 +25,8 @@ public class MenuManager : MonoBehaviour
     }
 
     void Start()
-    {     
+    {
+        SetDifficulty(difSelection.value);
         HidePanels();
     }
 
@@ -131,6 +132,10 @@ public class MenuManager : MonoBehaviour
         if (PlayerPrefs.HasKey(difficultyKey))
         {
             difSelection.value = PlayerPrefs.GetInt(difficultyKey);
+        }
+        else
+        {
+            difSelection.value = 1;
         }
     }
 }

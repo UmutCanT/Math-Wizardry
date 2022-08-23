@@ -17,13 +17,12 @@ public class Answering : MonoBehaviour
         OnWrongAnswer();
         OnAnswer();
     };
-    int correctAnswerForProgress;
+    readonly int correctAnswerForProgress = 15;
     int correctAnswerCounter;
 
     void Awake()
     {
         correctAnswerCounter = 0;
-        correctAnswerForProgress = 20;
     }
 
     void Start()
@@ -54,7 +53,7 @@ public class Answering : MonoBehaviour
             if(correctAnswerCounter >= correctAnswerForProgress)
             {
                 OnProgress();
-                correctAnswerForProgress += 20;
+                correctAnswerCounter = 0;
             }          
         }
         else
