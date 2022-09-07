@@ -53,6 +53,6 @@ public class LoadingManager : MonoBehaviour
     void UpdateUI(float progress)
     {
         bar.fillAmount = progress;
-        loadingText.text = string.Format("Loading: {0}%", Mathf.RoundToInt(progress * 100f));
+        loadingText.text = string.Format("Loadýng: {0}%", Mathf.RoundToInt(progress * 100f));
     }
 }

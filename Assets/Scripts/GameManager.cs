@@ -114,14 +114,21 @@ public class GameManager : MonoBehaviour
 
     void UpdateDifficultyProgress()
     {
-        currentState = currentState.Progress();
-        currentState.Process();
+        if (SelectedPref.Instance.DynamicDifficulty)
+        {
+            currentState = currentState.Progress();
+            currentState.Process();
+        }       
     }
 
     void UpdateDifficultyRegress()
     {
-        currentState = currentState.Regress();
-        currentState.Process();
+        Debug.Log(SelectedPref.Instance.DynamicDifficulty);
+        if (SelectedPref.Instance.DynamicDifficulty)
+        {
+            currentState = currentState.Regress();
+            currentState.Process();
+        }       
     }
 
     void GameOver()

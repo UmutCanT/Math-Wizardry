@@ -5,11 +5,13 @@ using UnityEngine;
 public class SelectedPref : MonoBehaviour
 {
     public static SelectedPref Instance { get; private set; }
-    static Character selectedCharacter;
-    static int selectedDifficulty;
+    Character selectedCharacter;
+    int selectedDifficulty;
+    bool dynamicDifficulty;
     
     public Character SelectedCharacter { get => selectedCharacter; set => selectedCharacter = value; }
     public int SelectedDifficulty { get => selectedDifficulty; set => selectedDifficulty = value; }
+    public bool DynamicDifficulty { get => dynamicDifficulty; set => dynamicDifficulty = value; }
 
     void Awake()
     {  
