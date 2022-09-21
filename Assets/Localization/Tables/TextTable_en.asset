@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: aefac680d9474ea47afc4c0085b0a4b6, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6461393816157159427
+  m_TableData:
+  - m_Id: 21079927169024
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21449130778624
+    m_Localized: "Sett\u0131ngs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21537399906304
+    m_Localized: "Cred\u0131ts"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34500592672768
+    m_Localized: "Math \nW\u0131zardry"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373812580458496
+    m_Localized: "H\u0131gh Scores"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375055033966592
+    m_Localized: "Aud\u0131o Sett\u0131ngs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375483096244224
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376121221849088
+    m_Localized: Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376716246786048
+    m_Localized: "Gameplay Sett\u0131ngs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377040403570688
+    m_Localized: Dynamic Difficulty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377468109332480
+    m_Localized: "Tutor\u0131als"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379014037512192
+    m_Localized: "Thanks for Play\u0131ng\nA Game by \nUmut Can Tek\xE7am"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379978874232832
+    m_Localized: Game Assets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381519223988224
+    m_Localized: "Mus\u0131cs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382622648901632
+    m_Localized: BG Arts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383574445531136
+    m_Localized: GUI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 384259346014208
+    m_Localized: "Character V\u0131suals"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385903643205632
+    m_Localized: "Are you sure you want to qu\u0131t?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387685777809408
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387735526449152
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388525095788544
+    m_Localized: Core Gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 389193164529664
+    m_Localized: "Collect the essence that has the correct answer before \u0131t
+      h\u0131ts the ground, or else..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392454168780800
+    m_Localized: Character Movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393233357217792
+    m_Localized: Just tap where you want to go on the screen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 425636385660928
+    m_Localized: "Qu\u0131ck Answer Ab\u0131l\u0131ty"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 432696657584128
+    m_Localized: "Tap on the character to cast mag\u0131c. That makes the essences
+      fall faster.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436858732552192
+    m_Localized: If you guess correct
+    m_Metadata:
+      m_Items: []
+  - m_Id: 437534074216448
+    m_Localized: + Point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 441468713050112
+    m_Localized: + Mana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442251940601856
+    m_Localized: "Ult\u0131mate Ab\u0131l\u0131ty"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442934660046848
+    m_Localized: "You can use your ult\u0131mate when the mana meter \u0131s full.
+      (D\u0131fferent ult\u0131mates for characters com\u0131ng soon)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 447779819364352
+    m_Localized: "If your mana meter \u0131s full you could get even more bonus po\u0131nts.
+      You can't use heal \u0131f your HP is already maxed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 477951406776320
+    m_Localized: "Load\u0131ng:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3995647100461056
+    m_Localized: Pos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996038634545152
+    m_Localized: Score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996424086888448
+    m_Localized: "Mag\u0131c"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4045986554060800
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4046261968838656
+    m_Localized: Restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4047181741957120
+    m_Localized: Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4047729048297472
+    m_Localized: Game Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060028249186304
+    m_Localized: '{dropdown.value:choose(0|1|2):Easy|Medium|Hard}'
+    m_Metadata:
+      m_Items:
+      - rid: 6461393816157159427
+  references:
+    version: 2
+    RefIds:
+    - rid: 6461393816157159427
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 002092fd926c0e00

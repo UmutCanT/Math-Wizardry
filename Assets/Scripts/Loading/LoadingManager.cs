@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LoadingManager : MonoBehaviour
 {
-    public static LoadingManager Instance;    
+    public static LoadingManager Instance;
 
     [SerializeField] GameObject loadingScreen;
     [SerializeField] Image bar;
@@ -29,7 +29,7 @@ public class LoadingManager : MonoBehaviour
     }
 
     public void LoadSelectedScene(string sceneName)
-    {
+    {       
         UpdateUI(0);
         loadingScreen.SetActive(true);
         StartCoroutine(LoadScene(sceneName));
@@ -53,6 +53,6 @@ public class LoadingManager : MonoBehaviour
     void UpdateUI(float progress)
     {
         bar.fillAmount = progress;
-        loadingText.text = string.Format("Loadýng: {0}%", Mathf.RoundToInt(progress * 100f));
+        loadingText.text = string.Format("{0}%",Mathf.RoundToInt(progress * 100f));
     }
 }

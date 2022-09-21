@@ -1,0 +1,193 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: TextTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: TextTable
+  m_TableCollectionNameGuidString: aefac680d9474ea47afc4c0085b0a4b6
+  m_Entries:
+  - m_Id: 21079927169024
+    m_Key: id_play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21449130778624
+    m_Key: id_settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21537399906304
+    m_Key: id_credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34500592672768
+    m_Key: id_title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373812580458496
+    m_Key: id_scores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375055033966592
+    m_Key: id_audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375483096244224
+    m_Key: id_music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376121221849088
+    m_Key: id_sfx
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376716246786048
+    m_Key: id_gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377040403570688
+    m_Key: id_dynamic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377468109332480
+    m_Key: id_tutorials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379014037512192
+    m_Key: id_thanks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379978874232832
+    m_Key: id_assets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381519223988224
+    m_Key: id_musics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382622648901632
+    m_Key: id_bg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383574445531136
+    m_Key: id_gui
+    m_Metadata:
+      m_Items: []
+  - m_Id: 384259346014208
+    m_Key: id_char
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385903643205632
+    m_Key: id_quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387685777809408
+    m_Key: id_yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387735526449152
+    m_Key: id_no
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388525095788544
+    m_Key: id_core
+    m_Metadata:
+      m_Items: []
+  - m_Id: 389193164529664
+    m_Key: id_tutorial1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392454168780800
+    m_Key: id_movement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393233357217792
+    m_Key: id_tutorial2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 425636385660928
+    m_Key: id_quick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 432696657584128
+    m_Key: id_tutorial3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436858732552192
+    m_Key: id_tutorial4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 437534074216448
+    m_Key: id_point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 441468713050112
+    m_Key: id_mana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442251940601856
+    m_Key: id_ultimate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442934660046848
+    m_Key: id_tutorial5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 447779819364352
+    m_Key: id_tutorial6
+    m_Metadata:
+      m_Items: []
+  - m_Id: 477951406776320
+    m_Key: id_loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3995647100461056
+    m_Key: id_pos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996038634545152
+    m_Key: id_score
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996424086888448
+    m_Key: id_magic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4045986554060800
+    m_Key: id_resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4046261968838656
+    m_Key: id_restart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4047181741957120
+    m_Key: id_menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4047729048297472
+    m_Key: id_over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060028249186304
+    m_Key: id_difSelection
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6461393544166768664
+  references:
+    version: 2
+    RefIds:
+    - rid: 6461393544166768664
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1662719987172

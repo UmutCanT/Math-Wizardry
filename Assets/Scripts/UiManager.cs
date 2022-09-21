@@ -9,6 +9,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] GameObject playerUI;
     [SerializeField] GameObject questionUI;
     [SerializeField] GameObject pauseButton;
+    [SerializeField] GameObject scoreUI;
     
     void Update()
     {
@@ -34,6 +35,7 @@ public class UiManager : MonoBehaviour
         questionUI.SetActive(true);
         pauseButton.SetActive(true);
         playerUI.SetActive(true);
+        scoreUI.SetActive(true);
     }
 
     public void HideUI()
@@ -41,6 +43,7 @@ public class UiManager : MonoBehaviour
         questionUI.SetActive(false);
         pauseButton.SetActive(false);
         playerUI.SetActive(false);
+        scoreUI.SetActive(false);
     }
 
     public void Pause()

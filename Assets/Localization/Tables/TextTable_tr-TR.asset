@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: TextTable_tr-TR
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: tr-TR
+  m_SharedData: {fileID: 11400000, guid: aefac680d9474ea47afc4c0085b0a4b6, type: 2}
+  m_Metadata:
+    m_Items:
+    - rid: 6461393793087438862
+  m_TableData:
+  - m_Id: 21079927169024
+    m_Localized: Oyna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21449130778624
+    m_Localized: Ayarlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21537399906304
+    m_Localized: Jenerik
+    m_Metadata:
+      m_Items: []
+  - m_Id: 34500592672768
+    m_Localized: "Matematik \nB\xFCy\xFCc\xFCl\xFC\u011F\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 373812580458496
+    m_Localized: "{variable}Y\xFCksek Puanlar{variable-1}"
+    m_Metadata:
+      m_Items:
+      - rid: 6461393793087438862
+  - m_Id: 375055033966592
+    m_Localized: "Ses Ayarlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 375483096244224
+    m_Localized: "M\xFCzik"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376121221849088
+    m_Localized: Efektler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 376716246786048
+    m_Localized: "Oynan\u0131\u015F Ayarlar\u0131"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377040403570688
+    m_Localized: "De\u011Fi\u015Fken Zorluk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 377468109332480
+    m_Localized: "Oyun \xD6\u011Freticisi"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379014037512192
+    m_Localized: "Oynad\u0131\u011F\u0131n\u0131z i\xE7in Te\u015Fekk\xFCrler\nGeli\u015Ftirici:
+      \nUmut Can Tek\xE7am\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 379978874232832
+    m_Localized: "Oyun \u0130\xE7i Varl\u0131klar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 381519223988224
+    m_Localized: "M\xFCzikler"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 382622648901632
+    m_Localized: "Arka Plan G\xF6rselleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383574445531136
+    m_Localized: "Aray\xFCz G\xF6rselleri"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 384259346014208
+    m_Localized: "Karakter G\xF6rselleri\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 385903643205632
+    m_Localized: "\xC7\u0131kmak istedi\u011Finden emin misin?\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387685777809408
+    m_Localized: Evet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 387735526449152
+    m_Localized: "Hay\u0131r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 388525095788544
+    m_Localized: "Temel Oynan\u0131\u015F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 389193164529664
+    m_Localized: "Yere d\xFC\u015Fmeden \xF6nce do\u011Fru cevaba sahip olan \xF6z\xFC
+      toplay\u0131n, yoksa..."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 392454168780800
+    m_Localized: Karakter Hareketi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 393233357217792
+    m_Localized: "Ekranda gitmek istedi\u011Finiz yere dokunman\u0131z yeterlidir.\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 425636385660928
+    m_Localized: "H\u0131zl\u0131 Cevap Yetene\u011Fi\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 432696657584128
+    m_Localized: "B\xFCy\xFC yapmak i\xE7in karakterin \xFCzerine dokunun. Bu, \xF6zlerin
+      daha h\u0131zl\u0131 d\xFC\u015Fmesini sa\u011Flar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 436858732552192
+    m_Localized: "E\u011Fer do\u011Fru tahmin edersen"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 437534074216448
+    m_Localized: + Puan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 441468713050112
+    m_Localized: + Mana
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442251940601856
+    m_Localized: Nihai Yetenek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 442934660046848
+    m_Localized: "Nihai yetene\u011Fini mana sayac\u0131 doldu\u011Funda kullanabilirsin.
+      (Karakterler i\xE7in farkl\u0131 nihai yetenekler yak\u0131nda gelecek)"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 447779819364352
+    m_Localized: "Mana sayac\u0131n doluysa daha da fazla bonus puan alabilirsin.
+      Can\u0131n zaten tam doluysa iyile\u015Ftirme kullanamazs\u0131n."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 477951406776320
+    m_Localized: "Y\xFCkleniyor:"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3995647100461056
+    m_Localized: "S\u0131ra"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996038634545152
+    m_Localized: Puan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3996424086888448
+    m_Localized: "B\xFCy\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4045986554060800
+    m_Localized: Devam Et
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4046261968838656
+    m_Localized: "<size=35>Yeniden Ba\u015Flat</size>"
+    m_Metadata:
+      m_Items:
+      - rid: 6461393793087438862
+  - m_Id: 4047181741957120
+    m_Localized: "Men\xFC"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4047729048297472
+    m_Localized: Oyun Bitti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4060028249186304
+    m_Localized: '{dropdown.Options:choose(0|1|2):Kolay|Orta|Zor}'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 6461393793087438862
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00201206fb530100002052c70d600e00

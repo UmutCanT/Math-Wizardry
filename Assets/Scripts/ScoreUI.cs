@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
-    [SerializeField] TMPro.TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] Score score;
-    [SerializeField] TMPro.TextMeshProUGUI gameOverScoreText;
+    [SerializeField] TextMeshProUGUI gameOverScoreText;
 
     void Start()
     {
@@ -23,7 +24,7 @@ public class ScoreUI : MonoBehaviour
 
     void GameOverScoreUpdate()
     {
-        gameOverScoreText.text = string.Format("Score: {0}", score.TotalScore);
+        gameOverScoreText.text = string.Format("{0}", score.TotalScore);
     }
 
     void OnDisable()
