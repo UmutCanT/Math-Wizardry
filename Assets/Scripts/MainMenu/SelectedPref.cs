@@ -8,10 +8,12 @@ public class SelectedPref : MonoBehaviour
     Character selectedCharacter;
     int selectedDifficulty;
     bool dynamicDifficulty;
+    int selectedLocale;
     
     public Character SelectedCharacter { get => selectedCharacter; set => selectedCharacter = value; }
     public int SelectedDifficulty { get => selectedDifficulty; set => selectedDifficulty = value; }
     public bool DynamicDifficulty { get => dynamicDifficulty; set => dynamicDifficulty = value; }
+    public int SelectedLocale { get => selectedLocale; set => selectedLocale = value; }
 
     void Awake()
     {  

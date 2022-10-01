@@ -13,19 +13,21 @@ public class MenuManager : MonoBehaviour
     [SerializeField] GameObject QuitPanel;
     [SerializeField] GameObject SettingsPanel;
     [SerializeField] GameObject Tutorials;
+    [SerializeField] LocaleSettings localeSettings;
     [SerializeField] TMPro.TMP_Dropdown difSelection;
     readonly string difficultyKey = "dificultyKey";
     readonly string tutorialKey = "tutorial";
 
     void Awake()
     {
-        LoadDifficultyValue();
+        LoadDifficultyValue();        
         difSelection.onValueChanged.AddListener(DiffChangeButtonSound);
         difSelection.onValueChanged.AddListener(SetDifficulty);
     }
 
     void Start()
     {
+        localeSettings.LocaleInit();
         SetDifficulty(difSelection.value);
         HidePanels();
     }

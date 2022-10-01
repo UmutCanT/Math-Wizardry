@@ -5,13 +5,24 @@ using UnityEngine.Localization.Settings;
 
 public class LocaleSettings : MonoBehaviour
 {
-    bool isCoroutineActive = true;
+    [SerializeField] TMPro.TMP_Dropdown localeSelection;
+    readonly string localeKey = "localeKey";
+    bool isCoroutineActive;
 
-    public void ChangLocale(int localeId)
+    public void LocaleInit()
     {
-        if (isCoroutineActive == true)
+        SelectedPref.Instance.SelectedLocale = PlayerPrefs.GetInt(localeKey, 0);
+        localeSelection.value = SelectedPref.Instance.SelectedLocale;
+        ChangLocale(SelectedPref.Instance.SelectedLocale);
+        localeSelection.onValueChanged.AddListener(ChangLocale);
+    }
+
+    public void ChangLocale(int value)
+    {
+        Debug.Log("ChangeLocale " + value);
+        if (isCoroutineActive)
             return;
-        StartCoroutine(SetLocal(localeId));
+        StartCoroutine(SetLocal(value));
     }
 
     IEnumerator SetLocal(int localeId)
@@ -19,6 +30,7 @@ public class LocaleSettings : MonoBehaviour
         isCoroutineActive = true;
         yield return LocalizationSettings.InitializationOperation;
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[localeId];
+        PlayerPrefs.SetInt(localeKey, localeId);
         isCoroutineActive = false;
     }
 }

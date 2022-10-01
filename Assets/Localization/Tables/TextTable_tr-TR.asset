@@ -186,8 +186,28 @@ MonoBehaviour:
     m_Localized: Oyun Bitti
     m_Metadata:
       m_Items: []
-  - m_Id: 4060028249186304
-    m_Localized: '{dropdown.Options:choose(0|1|2):Kolay|Orta|Zor}'
+  - m_Id: 5819976666718208
+    m_Localized: Kolay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5819996593856512
+    m_Localized: Orta
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5820012825812992
+    m_Localized: Zor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5922128655425536
+    m_Localized: Oyun Dili
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190371156664320
+    m_Localized: "\u0130ngilizce"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190400160276480
+    m_Localized: "T\xFCrk\xE7e"
     m_Metadata:
       m_Items: []
   references:

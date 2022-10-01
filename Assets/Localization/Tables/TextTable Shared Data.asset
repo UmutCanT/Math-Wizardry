@@ -175,8 +175,29 @@ MonoBehaviour:
     m_Key: id_over
     m_Metadata:
       m_Items: []
-  - m_Id: 4060028249186304
-    m_Key: id_difSelection
+  - m_Id: 5819976666718208
+    m_Key: MainMenu/Canvas/DifSettings 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5819996593856512
+    m_Key: MainMenu/Canvas/DifSettings 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5820012825812992
+    m_Key: MainMenu/Canvas/DifSettings 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5922128655425536
+    m_Key: id_language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190371156664320
+    m_Key: MainMenu/Canvas/Settings/SettingsPanel/Viewport/Content/Locale/Dropdown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190400160276480
+    m_Key: MainMenu/Canvas/Settings/SettingsPanel/Viewport/Content/Locale/Dropdown
+      1
     m_Metadata:
       m_Items: []
   m_Metadata:

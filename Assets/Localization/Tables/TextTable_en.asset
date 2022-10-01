@@ -183,11 +183,30 @@ MonoBehaviour:
     m_Localized: Game Over
     m_Metadata:
       m_Items: []
-  - m_Id: 4060028249186304
-    m_Localized: '{dropdown.value:choose(0|1|2):Easy|Medium|Hard}'
+  - m_Id: 5819976666718208
+    m_Localized: Easy
     m_Metadata:
-      m_Items:
-      - rid: 6461393816157159427
+      m_Items: []
+  - m_Id: 5819996593856512
+    m_Localized: Medium
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5820012825812992
+    m_Localized: Hard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5922128655425536
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190371156664320
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6190400160276480
+    m_Localized: Turkish
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
