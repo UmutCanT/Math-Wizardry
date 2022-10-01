@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    [SerializeField] PlayerStatus[] playerStatuses;
     [SerializeField] Animator animator;
     Ability ability;
 
@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     {
         Answering.OnAnswer += AllowCast;
         Health.OnHealthDepleted += StopCasting;
+        Answering.OnCorrectAnswer += OnCorrectEffect;
+        Answering.OnWrongAnswer += OnWrongEffect;
+        Health.OnHeal += OnHealEffect;
+        
         AllowCast();    
     }
 
@@ -21,6 +25,34 @@ public class Player : MonoBehaviour
     {
         ability = selectedAbility;
         ability.Initialize(gameObject);
+    }
+
+    void OnCorrectEffect()
+    {
+        StartCoroutine(ActivateEffect(PlayerStatusTypes.AnsweringCorrect));
+    }
+
+    void OnWrongEffect()
+    {
+        StartCoroutine(ActivateEffect(PlayerStatusTypes.AnsweringWrong));
+    }
+
+    void OnHealEffect()
+    {
+        StartCoroutine(ActivateEffect(PlayerStatusTypes.Healing));
+    }
+
+    IEnumerator ActivateEffect(PlayerStatusTypes type)
+    {
+        foreach (PlayerStatus status in playerStatuses)
+        {
+            if (status.type == type)
+            {
+                status.gameObject.SetActive(true);
+                yield return new WaitForSeconds(0.5f);
+                status.gameObject.SetActive(false);
+            }
+        }      
     }
 
     void OnMouseDown()
@@ -46,6 +78,9 @@ public class Player : MonoBehaviour
     void OnDisable()
     {
         Answering.OnAnswer -= AllowCast;
-        Health.OnHealthDepleted -= StopCasting;      
+        Health.OnHealthDepleted -= StopCasting;
+        Answering.OnCorrectAnswer -= OnCorrectEffect;
+        Answering.OnWrongAnswer -= OnWrongEffect;
+        Health.OnHeal -= OnHealEffect;
     }
 }

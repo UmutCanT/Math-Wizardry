@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
     public event Action OnHealthChange;
     public static event Action OnHealthDepleted;
     public static event Action OnRegress;
+    public static event Action OnHeal;
 
     int currentHealth;
     int maxHealth;
@@ -36,6 +37,7 @@ public class Health : MonoBehaviour
 
     public void Heal()
     {
+        OnHeal();
         currentHealth += 1;
         OnHealthChange();
     }
@@ -48,6 +50,7 @@ public class Health : MonoBehaviour
         if (damageCounter >= 2)
         {
             OnRegress();
+            damageCounter = 0;
         }
         if (currentHealth <= 0)
         {
