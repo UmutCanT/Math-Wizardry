@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
 
     void UpdateDifficultyRegress()
     {
-        Debug.Log(SelectedPref.Instance.DynamicDifficulty);
         if (SelectedPref.Instance.DynamicDifficulty)
         {
             currentState = currentState.Regress();

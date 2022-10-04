@@ -40,8 +40,6 @@ public class GameplaySettings : MonoBehaviour
     void DynamicDifHandler(bool enableSettings)
     {
         SelectedPref.Instance.DynamicDifficulty = enableSettings;
-        Debug.Log(SelectedPref.Instance.DynamicDifficulty);
-
         if (enableSettings)
         {
             PlayerPrefs.SetInt(dynamicDifPrefKey, 1);

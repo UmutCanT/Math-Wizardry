@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
             if (status.type == type)
             {
                 status.gameObject.SetActive(true);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.35f);
                 status.gameObject.SetActive(false);
             }
         }      

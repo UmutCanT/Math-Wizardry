@@ -148,7 +148,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 447779819364352
     m_Localized: "If your mana meter \u0131s full you could get even more bonus po\u0131nts.
-      You can't use heal \u0131f your HP is already maxed."
+      You can't use heal \u0131f your HP \u0131s already maxed."
     m_Metadata:
       m_Items: []
   - m_Id: 477951406776320
@@ -188,7 +188,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 5819996593856512
-    m_Localized: Medium
+    m_Localized: "Med\u0131um"
     m_Metadata:
       m_Items: []
   - m_Id: 5820012825812992

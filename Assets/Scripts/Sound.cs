@@ -7,7 +7,6 @@ public struct Sound
     public SoundType soundType;
     public AudioClip audioClip;
 }
-
 public enum SoundType
 {
     MenuChange,

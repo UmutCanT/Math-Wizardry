@@ -19,7 +19,6 @@ public class LocaleSettings : MonoBehaviour
 
     public void ChangLocale(int value)
     {
-        Debug.Log("ChangeLocale " + value);
         if (isCoroutineActive)
             return;
         StartCoroutine(SetLocal(value));

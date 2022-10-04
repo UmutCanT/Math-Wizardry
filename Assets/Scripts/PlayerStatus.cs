@@ -8,7 +8,6 @@ public struct PlayerStatus
     public PlayerStatusTypes type;
     public GameObject gameObject;
 }
-
 public enum PlayerStatusTypes
 {
     AnsweringCorrect,
